@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../public/account/css/style.css">
+    <link rel="stylesheet" href="./../public/account/1setting/css/setting.css">
+    <title>settings</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="options">
+            <div>
+                <a title="help" href="#"><img src="./../public/account/icons/question-circle-regular.svg" height="20px"></a>
+                <a title="notification" href="#"><img src="./../public/account/icons/bell-regular.svg" height="20px"></a>
+            </div>
+            <div>
+                <div>
+                    <div class="name">{{name}}</div>
+                    <div class="email">{{email}}<img src="./../public/account/icons/caret-down-solid.svg" height="12px"></div>
+                </div>
+                <div class="ext">
+                    <a href="/dashboard">my account</a>
+                    <a href="/setting">setting</a>
+                    <a id="logout">logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <navbar id="nav">
+        <div class="collapsible"><img id="arrow" src="./../public/account/icons/angle-right-solid.svg" height="30px"></div>
+        <div class="logo">SecurIt</div>
+        <br>
+        <div class="options">
+            <ul>
+                <a href="/home">
+                    <li>Home</li>
+                </a>
+                <a href="/dashboard">
+                    <li>Account</li>
+                </a>
+                <a href="#">
+                    <li>Notification</li>
+                </a>
+                <a href="/setting">
+                    <li>Setting</li>
+                </a>
+                <a href="#">
+                    <li>Support</li>
+                </a>
+                <a id="logout">
+                    <li>logout</li>
+                </a>
+            </ul>
+        </div>
+    </navbar>
+
+    <section>
+        <div id="tab">
+            <h3 id="general">general</h3>
+            <h3 id="security">security</h3>
+            <h3 id="service">service</h3>
+            <h3 id="theme">theme</h3>
+        </div>
+
+        <div class="general">
+            <div>
+                <div>userID</div>
+                <div>{{userID}}<a href="#" title="edit"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></a></div>
+            </div>
+            <div>
+                <div>name</div>
+                <div>{{name}}<a href="#" title="edit"><img  src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></a></div>
+            </div>
+            <div>
+                <div>email</div>
+                <div>{{email}}<a href="#" title="edit"><img  src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></a></div>
+            </div>
+        </div>
+        <div class="security" style="display: none;">
+            <div>
+                <div>userID</div>
+                <div>{{userID}} <a href="#"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></a></div>
+            </div>
+            <div>
+                <div>password</div>
+               <div> <div class="do-button">change password</div></div>
+            </div>
+            <div>
+                <div>login</div>
+            <div> <div class="do-button">logout from all devices</div></div>
+            </div>
+        </div>
+        <div class="service" style="display: none;">
+            <div>
+                <div>api key</div>
+                <div> [ api key ] </api><a href="#"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></a></div>
+            </div>
+            <div>
+                <div>endpoint</div>
+               <div> <div class="do-button">test endpoint</div></div>
+            </div>
+            <div>
+                <div>documentation</div>
+                <div><a href="#">view docs</a></div>
+            </div>
+        </div>
+        <div class="theme" style="display: none;">
+            
+                <div>
+                    <div>theme</div>
+                    <div>light<a href="#"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></a></div>
+                </div>
+                <div>
+                    <div>customize theme</div>
+                    <div><a href="#">view docs</a></div>
+                </div>
+           
+        </div>
+        <div>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+        </div>
+    </section>
+    <h5 style="text-align: center; color:rgb(40, 65, 66)">Note: setting is not currently connected with backend, therefore data modification is currently unavaiable</h5>
+
+
+
+    <script src="./../public/account/javascript/script.js"></script>
+    <script src="./../public/account/1setting/javascript/setting.js"></script>
+</body>
+
+</html>

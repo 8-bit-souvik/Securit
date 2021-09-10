@@ -1,0 +1,69 @@
+section{
+    margin: 5em 10%;
+}
+
+section > div{
+    padding: 20px;
+    background-color: rgb(209, 217, 255);
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+section > div > div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 20px 0;
+    border-bottom: 1px dotted rgb(68, 68, 68);
+    /* justify-content: space-between; */
+}
+
+section > div > div > div:nth-child(1){
+    font-weight: 500;
+}
+
+section > div > div > div:nth-child(2){
+    position: absolute;
+    left: 40%;
+    font-weight: 400;
+    color: rgb(75, 75, 75);
+}
+
+.setting-div{
+    padding: 10px;
+    position: relative;
+    height: 4em;
+}
+.setting{
+    background-color: rgb(31, 118, 231);
+    color: rgb(255, 252, 249);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    /* margin-left: 80%; */
+    position: absolute;
+    right: 15px;
+}
+
+@media screen and (max-width: 550px) {
+    section{
+        margin: 5em 3% 0 10%;
+    }
+
+    section > div > div > div:nth-child(2){
+        left: 50%;
+    }
+
+    .setting{
+        margin-left: 70%;
+    }
+    
+}
+
+@media screen and (max-width: 550px) {
+    section > div > div > div:nth-child(2){
+        left: 60%;
+    }
+}

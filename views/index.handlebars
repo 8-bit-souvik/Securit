@@ -1,0 +1,185 @@
+<title>SecureIt</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="./../public/assets/css/style.css">
+
+<header>
+
+
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/"><img src="./../public/assets/icons/logo.svg" height="50px"><span>
+                SecureIt</span></a>
+    </div>
+    <div class="links">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about"><span class="glyphicon"></span> About</a></li>
+            <li><a href="#contact"><span class="glyphicon"></span> Contact</a></li>
+            <li><a href="/login"><span class="glyphicon"></span> Help</a></li>
+        </ul>
+    </div>
+
+
+    <div class="options">
+        <button type="button" class="navbar-toggle">
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+        </button>
+
+        <div id="toggle-box">
+        <ul class="nav navbar-nav navbar-right link-log">
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+        <div style="display: none;" class="link-ID">
+            <a href="/login">
+                <div class="name">{{name}} <img src="./../public/assets/icons/caret-right-solid.svg" height="15px">
+                </div>
+                <div class="email">{{email}}</div>
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right links-ext">
+            <li><a href="#about"><span class="glyphicon glyphicon-user"></span> About</a></li>
+            <li><a href="#contact"><span class="glyphicon glyphicon-log-in"></span> Contact</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Help</a></li>
+        </ul>
+        </div>
+
+    </div>
+</header>
+
+<br>
+
+<section class="intro">
+    <div><img src="./../public/assets/images/cover.png" alt="SecureIt" width="400px"></div>
+    <div><span class="tagline">Simple, Secure, Fast</span>
+        <br>
+        Introducing &nbsp; <span class="logo"> SECURIT</span>
+        <br>
+        <br>
+        a simple login system using node JS and express for learning purpose
+    </div>
+</section>
+<br>
+<section class="feature">
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <div class="cards" id="one">
+                        <div>
+                            <h3>Simple User friendly interface</h3>
+                            <p>LA is always so much fun!</p>
+                        </div>
+                        <div> <img src="./../public/assets/icons/user_friendly.svg" alt="Simple User friendly interface"
+                                style="width:100%;" height="100px" width="100px"></div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="cards" id="two">
+                        <div>
+                            <h3>Best ever Security with end-to-end encryption </h3>
+                            <p>once encrypted, even outhority can't read it</p>
+                        </div>
+                        <div> <img src="./../public/assets/icons/Data_encryption.svg"
+                                alt="Best ever Security with end-to-end encryption" style="width:100%;" height="100px"
+                                width="100px"></div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="cards" id="three">
+                        <div>
+                            <h3>Low latency with fast response</h3>
+                            <p>intelligently decides transport layer on basis of connection speed, data type etc.</p>
+                        </div>
+                        <div> <img src="./../public/assets/icons/latency-delay.svg" alt="Low latency with fast response"
+                                style="width:100%;" height="100px" width="100px"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section>
+<br>
+<section class="summery" id="about">
+    <br>
+    <div class="left">
+        <h3>testimonials</h3>
+        we started from scratch and now we are growing day by day in skills, product quality and more audiance with
+        positive reviews.
+        as aur motive is to provide best ever security we are continuously wroking on it by discovering various kind of
+        algorithm and imporving them.
+        support us and if wish be our patron by signing in.
+        <br>
+        <br>
+        <br>
+    </div>
+    <br>
+    <div class="right">
+        <h3>datasheet</h3>
+        We will publish our datasheet soon...
+
+        <br>
+        <br>
+        <br>
+    </div>
+    <br>
+    <br>
+</section>
+
+<br>
+
+<footer>
+    <ul>
+        <li>About Project</li>
+        <br>
+        <li>source code</li>
+        <li>report bug</li>
+        <li>contribute</li>
+        <li>datasheet</li>
+        <br>
+    </ul>
+
+    <ul id="contact">
+        <li>contact me</li>
+        <br>
+        <li>linkedin</li>
+        <li>twitter</li>
+        <li>email</li>
+        <li>instagram</li>
+        <li>facebook</li>
+    </ul>
+    <br>
+    <br>
+</footer>
+
+<div class="copyright">
+    2021 © Securit LLC
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="./../public/assets/javascript/index.js"></script>

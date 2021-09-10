@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iofrm</title>
+    <link rel="stylesheet" type="text/css" href="./../public/form/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./../public/form/css/fontawsome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="./../public/form/css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="./../public/form/css/iofrm-theme1.css">
+</head>
+
+<body>
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="index.html">
+                <div class="logo">
+                    <img class="logo-size" src="./../public/form/images/logo-light.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder"></div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div id="identity-form" >
+                        <h5>Enter userID to find your account</h5>
+                        <form>
+                            <div style="display: inline-flex; justify-content: space-between; width: 100%;">
+                                <input class="form-control" type="text" name="userID" id="userID" autocomplete="on"
+                                    placeholder="enter ID" required>
+                                &nbsp;
+                                <button id="ID-submit" type="submit" class="ibtn"
+                                    style="margin: 0 0 14px; padding: 0 10px; border-radius: 5px; outline: none; cursor: pointer">find</button>
+                            </div>
+                            <div id="alert-msg"></div>
+                            <br>
+                            <div id="OTP-field" style="display: none;">
+                                <input class="form-control" type="text" name="recOTP" id="recOTP" autocomplete="off"
+                                    placeholder="enter OTP" required>
+
+                                <button id="OTP-submit" type="submit" class="ibtn"
+                                    style="margin: 0 0 14px; padding: 5px 10px; border-radius: 5px; outline: none; cursor: pointer">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="recovery-form"  style="display: none;">
+                        <h5>create a new password</h5>
+                        <form>
+                            <div style=" width: 30ch;">
+                                <input class="form-control" type="password" name="password" id="pswd1"
+                                    autocomplete="off" placeholder="enter password" required>
+
+                                <input class="form-control" type="password" name="password" id="pswd2"
+                                    autocomplete="off" placeholder="re-enter password" required>
+                            </div>
+                            <div id="alert-msg2"></div>
+                            
+                            <button id="password-submit" type="submit" class="ibtn"
+                                style="margin: 0 0 14px; padding: 5px 10px; border-radius: 5px; outline: none; cursor: pointer">submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="./../public/form/js/api.js"></script> -->
+    <script src="./../public/api/recovery.js"></script>
+</body>
+
+</html>

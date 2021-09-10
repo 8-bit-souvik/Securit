@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    list-style-type:none;
+}
+
+body{
+    background-color: rgb(238, 239, 245);
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    height: 60px;
+    width: 100vw;
+    background-color: rgba(168, 245, 168, 0.801);
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 3px;
+}
+
+header .options {
+    position: absolute;
+    right: 0px;
+    top: 7px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+header .options > div:nth-child(1) {
+    height: fit-content;
+ margin-top: 10px;
+ border-right: 5px double grey;
+}
+
+header .options div {
+margin-right: 1vw;
+}
+header .options:nth-child(1) a {
+padding: 20px;
+}
+
+header .options:nth-child(1) a:hover{
+    background-color: rgb(200, 255, 200);
+    z-index: 100;
+}
+
+header > .options > div:nth-child(2) > .ext{
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    border: 1px solid grey;
+    background-color: rgb(212, 211, 211);
+    box-shadow: grey 0px 0px 10px;
+    position: relative;
+    top: 20px;
+    display: none;
+}
+
+
+header .options > div:nth-child(2) {
+    padding: 5px 20px 0 20px;
+    cursor: pointer;
+}
+    
+header .options > div:nth-child(2) .name {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+header .options > div:nth-child(2) .email {
+    margin-top: 3px;
+    color: rgb(97, 97, 97);
+ font-size: 12px;
+ display: flex;
+ flex-wrap: nowrap;
+
+}
+    
+
+header > .options > div:nth-child(2):hover .ext{
+    display: flex;
+}
+
+header > .options > div:nth-child(2) > .ext a{
+   border-bottom: 1px dashed grey;
+   text-decoration: none;
+   color: black;
+}
+
+header > .options > div:nth-child(2) > .ext a:hover{
+    background-color: rgb(94, 94, 94);
+    color: rgb(255, 244, 224);
+}
+
+navbar{
+    width: fit-content;
+    background-color: rgb(46, 36, 75);
+    color: honeydew;
+    z-index: 110;
+    position: fixed;
+    height: 100vh;
+    left:-225px;
+    top: 0;
+    transition: .3s;
+}
+
+navbar .collapsible{
+    background-color: khaki;
+    height: 40px;
+    width: 40px;
+    border-radius: 30%;
+    border: 1px rgb(75, 75, 75) solid;
+    box-shadow: rgb(92, 92, 92) 0 0 10px ;
+    position: absolute;
+    top: 10px;
+    right: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+navbar .collapsible:hover{
+    background-color: rgb(255, 249, 196);
+}
+
+navbar .logo{
+    padding: 20px 80px;
+    font-size: 26px;
+}
+
+navbar .options {
+    /* padding: 40px; */
+    width: fit-content;
+}
+
+navbar .options a{
+    text-decoration: none;
+    color: honeydew;
+}
+
+navbar .options li {
+    padding: 20px 80px;
+    border-top: 1px solid grey;
+}
+
+navbar .options a:last-child{
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    background-color: rgb(82, 75, 139);
+}
+
+navbar .options li:hover{
+    background-color: rgba(255, 105, 180, 0.288);
+}
+
+
+@media screen and (max-width: 400px) {
+    *{
+        font-size: 99%;
+    }
+}
+@media screen and (max-width: 300px) {
+    *{
+        font-size: 96%;
+    }
+}

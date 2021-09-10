@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: rgb(206, 255, 255);
+    background-image: linear-gradient(to bottom left, rgb(120, 211, 211), rgb(220, 255, 255), rgb(120, 211, 211));
+    overflow-x: hidden;
+}
+
+.navbar-brand{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-right: 5vw;
+    align-items: center;
+}
+
+
+.navbar-brand > span {
+    font-size: 30px;
+    font-weight: 600;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+header{
+    position: relative;
+    /* height: 60px; */
+    width: 100vw;
+    background-color: rgba(168, 245, 168, 0.801);
+    display: flex;
+    flex-wrap: nowrap;
+    /* padding: 3px; */
+}
+
+
+
+header > .options {
+    padding: 0px 30px 0 15px;
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    right: 20px;
+    min-width: 12em;
+}
+
+
+.links-ext, .link-log{
+    background-color: rgb(176, 197, 236);
+}
+
+.link-log > li:nth-child(1) {
+border-right: rgb(137, 137, 137) solid 1px ;
+}
+
+
+    
+header .options   .name {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+header .options  .email {
+    color: rgb(97, 97, 97);
+ font-size: 12px;
+ display: flex;
+ flex-wrap: nowrap;
+ margin-top: 3px;
+
+}
+
+.link-ID > a:hover{
+    text-decoration: none;
+}
+
+.intro{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+   color: grey;
+   margin: 0 55px;
+}
+.intro div {
+    align-self: center;
+}
+
+.intro div .tagline{
+    font-size: 30px;
+}
+
+.intro div .logo{
+    font-size: 30px;
+    color: orange;
+    text-shadow: blue 1px 1px 2px;
+}
+
+.feature .item .cards{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+color: papayawhip;
+text-shadow: black 2px 2px ;
+}
+
+.feature .item #one {
+    background-image: url("./../images/user-interface-t.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+.feature .item #two {
+    background-image: url("./../images/computercloseupboard-1-1024x363.jpg");
+    background-attachment: fixed;
+  }
+
+.feature .item #three {
+    background-image: url("./../images/ZZZZZ2898.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+.summery{
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.summery div{
+ width: 45vw;
+ padding: 15px;
+
+}
+
+.summery .left {
+    background-color: rgb(245, 214, 156);
+}
+.summery .right {
+    background-color: rgb(230, 197, 137);
+}
+
+footer{
+    background-color: rgb(48, 49, 59);
+    color: honeydew;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    padding: 20px 30px;
+}
+
+footer ul{
+    margin: 5px 40px;
+    list-style-type:none
+}
+
+.copyright{
+    background-color: rgb(22, 23, 36);
+    padding: 15px;
+    color: rgb(187, 187, 187);
+}
+
+@media screen and (min-width: 770px){
+.links-ext{
+    display: none;
+}
+
+header > .options:hover {
+    background-color: rgb(189, 211, 253);
+}
+header > .options {
+    box-shadow: 0 2px 5px rgb(88, 98, 103);
+}
+
+}
+
+@media screen and (max-width: 770px) {
+    
+    .links{
+    display: none;
+    }
+
+    .icon-bar{
+        width: 20px;
+        height: 5px;
+        background-color: darkblue;
+    }
+    .intro{
+        text-align: center;
+        flex-direction: column-reverse;
+        margin: 0 5px;
+    }
+    .intro div:nth-child(2){
+        margin: 40px 0;
+    }
+    .summery{
+    flex-direction: column;
+    }
+    .summery div{
+        width: 80vw;  
+        margin: auto;
+    }
+       
+    #toggle-box{
+    background-color: rgba(81, 131, 191, 0.836);
+   margin-top: 50px;
+   box-shadow: rgba(97, 119, 138, 0.966) 0 0 5px 10px;
+   }
+   
+}
+
+@media screen and (max-width: 410px) {
+.intro div img {
+    width: 98vw;
+}
+}

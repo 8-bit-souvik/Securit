@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    margin: 100px 5% 0 8%;
+    line-height: 3ch;
+}
+
+section .welcome{
+    padding: 20px;
+    width: 100%;
+
+}
+
+section .statement{
+    padding: 40px;
+    width: 100%;
+    background-color: rgb(220, 237, 243);
+    border-radius: 10px;
+    -moz-box-shadow:    inset 0 0 3px #b1b1b1;
+    -webkit-box-shadow: inset 0 0 3px #b1b1b1;
+    box-shadow:         inset 0 0 3px #b1b1b1;
+}
+
+section .statement div{
+    width: 60vw;
+}
+
+section .statement div h3{
+    color: black;
+}
+
+section .statement div{
+    color: rgb(73, 97, 104);
+}
+
+section .statement img{
+    width: 20em;
+    float:right
+}
+
+section .options{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 21px;
+    margin-bottom: 50px;
+    box-shadow: rgb(209, 209, 209) 0 0 5px;
+}
+
+section .options a{
+    text-decoration: none;
+
+}
+
+section .options a div{
+    border-bottom: 1px solid rgb(190, 190, 190);
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+}
+
+section .options a div:hover{
+    background-color: rgb(216, 216, 216);
+}
+
+
+@media screen and (max-width: 650px) {
+    section .statement img{
+        display: none;
+    }
+}

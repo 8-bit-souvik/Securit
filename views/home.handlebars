@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../public/account/css/style.css">
+    <link rel="stylesheet" href="./../public/account/1home/css/home.css">
+    <title>home</title>
+</head>
+
+<body>
+     <header>
+        <div class="options">
+            <div>
+                <a title="help" href="#"><img src="./../public/account/icons/question-circle-regular.svg" height="20px"></a>
+                <a title="notification" href="#"><img src="./../public/account/icons/bell-regular.svg" height="20px"></a>
+            </div>
+            <div>
+                <div>
+                    <div class="name">{{name}}</div>
+                    <div class="email">{{email}}<img src="./../public/account/icons/caret-down-solid.svg" height="12px"></div>
+                </div>
+                <div class="ext">
+                    <a href="/dashboard">my account</a>
+                    <a href="/setting">setting</a>
+                    <a id="logout">logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <navbar id="nav">
+        <div class="collapsible"><img id="arrow" src="./../public/account/icons/angle-right-solid.svg" height="30px"></div>
+        <div class="logo">SecurIt</div>
+        <br>
+        <div class="options">
+            <ul>
+                <a href="/home">
+                    <li>Home</li>
+                </a>
+                <a href="/dashboard">
+                    <li>Account</li>
+                </a>
+                <a href="#">
+                    <li>Notification</li>
+                </a>
+                <a href="/setting">
+                    <li>Setting</li>
+                </a>
+                <a href="#">
+                    <li>Support</li>
+                </a>
+                <a id="logout">
+                    <li >logout</li>
+                </a>
+            </ul>
+        </div>
+    </navbar>
+
+
+    <section>
+        <div class="warning"></div>
+        <div class="welcome">
+            <h2>Hello {{firstname}}</h2> it's good to have you there!
+        </div>
+        <br>
+        <div class="statement">
+            <div>
+                <h3>Dedicated Support</h3>
+                Our support replies fast, but if you want to collaborate or get advantage you can directly contact with us. <a href="#">Learn more.</a>
+            </div><img src="./../public/account/1home/images/undraw_Hello_re_3evm.svg">
+        </div>
+    </section>
+    <section>
+        <div class="options">
+            <a href="">
+                <div>our projects</div>
+            </a>
+            <a href="">
+                <div>upcomming projects</div>
+            </a>
+            <a href="">
+                <div>send campaign</div>
+            </a>
+            <a href="">
+                <div>get advice</div>
+            </a>
+        </div>
+
+    </section>
+
+
+    <script src="./../public/account/javascript/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iofrm</title>
+    <link rel="stylesheet" type="text/css" href="./../public/form/css/bootstrap.min.css">
+    {{!--
+    <link rel="stylesheet" type="text/css" href="./../public/form/css/fontawesome-all.min.css"> --}}
+    <link rel="stylesheet" type="text/css" href="./../public/form/css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="./../public/form/css/iofrm-theme1.css">
+</head>
+
+<body>
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="index.html">
+                <div class="logo">
+                    <img class="logo-size" src="./../public/form/images/logo-light.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items" id="register-form" style="display: block;">
+                        <h3>Get more things done with Loggin platform.</h3>
+                        <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                        <div class="page-links">
+                            <a href="/login">Login</a><a href="/register" class="active">Register</a>
+                        </div>
+                        <form>
+                            <input class="form-control" type="text" name="userID" id="userID" placeholder="user ID"
+                                required>
+                            <input class="form-control" type="text" name="name" id="name" placeholder="Full Name"
+                                required>
+                            <input class="form-control" type="email" name="email" id="email"
+                                placeholder="E-mail Address" required>
+                            <div style="display: flex; flex-wrap: nowrap;">
+                                <input class="form-control" type="password" name="password" id="password"
+                                    placeholder="Password" required>
+                                <button type="button" class="ibtn" onclick="sPwd()"
+                                    style=" margin: 0 0 14px; border-radius: 7px; border: 1px solid grey; outline: none;"><img
+                                        class="sPwd" src="./../public/form/images/eye-slash-solid.svg"
+                                        width="20px"></button>
+                            </div>
+                            <div id="alert-msg"></div>
+                            <div class="form-button">
+                                <button id="data-submit" type="submit" class="ibtn">Register</button>
+                            </div>
+                        </form>
+                        <div class="other-links">
+                            <span>Or register with</span><a href="#">Facebook</a><a href="#">Google</a><a
+                                href="#">Linkedin</a>
+                        </div>
+                    </div>
+                    <div id="otp-form" style="display: none;">
+                                                        <button id="logout" type="submit" class="ibtn"
+                                    style="margin: 0 0 14px; border-radius: 5px; background-color: rgb(0, 140, 255); color: whitesmoke; outline: none; cursor: pointer; position: fixed; right: 20px; top: 40px;">logout</button>
+                         <h5>Enter OTP which has been sent to your email</h5>
+                         <span style="color: blue;">{{email}}</span>
+                        <p>if otp has been expired click resend</p>
+                        <form>
+                            <div style="display: inline-flex; justify-content: space-between;">
+                                <input class="form-control" type="text" name="otp" id="otp" autocomplete="off"
+                                    placeholder="enter OTP" autocomplete="off" required>
+                                &nbsp;
+                                <button id="otp-submit" type="submit" class="ibtn"
+                                    style="margin: 0 0 14px; border-radius: 5px; outline: none; cursor: pointer">submit</button>
+                            </div>
+                            <div id="alert-msg2"></div>
+                            <br>
+                            <a id="otp-resend" style="cursor: pointer;">resend email</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./../public/form/js/main.js"></script>
+    <script src="./../public/api/signup.js"></script>
+</body>
+
+</html>
