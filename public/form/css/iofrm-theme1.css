@@ -88,19 +88,19 @@
 }
 
 .form-holder .form-content ::-webkit-input-placeholder {
-    color: #526489;
+    color: #596a8e;
 }
 
 .form-holder .form-content :-moz-placeholder {
-    color: #526489;
+    color: #596a8e;
 }
 
 .form-holder .form-content ::-moz-placeholder {
-    color: #526489;
+    color: #596a8e;
 }
 
 .form-holder .form-content :-ms-input-placeholder {
-    color: #526489;
+    color: #596a8e;
 }
 
 .form-content {
@@ -492,3 +492,6 @@
         background-image: url("../images/logo-light.svg");
     }
 }
+
+
+/*pla#596a8er
