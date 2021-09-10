@@ -3,6 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const cookieParser = require('cookie-parser');
+require("dotenv").config({path:`${__dirname}/../.env`});
 
 
 
@@ -32,6 +33,6 @@ app.use("/*", (req, res) => {
     
 });
 
-const PORT =  5510 ; 
+const PORT = process.env.PORT || 5512 ; 
 
 app.listen(PORT, () => { console.log(`server started ar PORT number ${PORT}`)})

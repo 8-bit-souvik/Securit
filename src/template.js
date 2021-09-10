@@ -93,8 +93,4 @@ router.get('/setting', checkLogin, (req, res) => {
 })
 
 
-
-
-
-
 module.exports = router;

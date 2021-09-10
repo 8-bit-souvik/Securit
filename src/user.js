@@ -59,7 +59,7 @@ router.post('/signup/', (req, res) => {
                         ID: ID
                     }
 
-                    jwt.sign({ user }, 'secretkey', { expiresIn: '3600s' }, (err, token) => {
+                    jwt.sign({ user },  process.env.JWT_token, { expiresIn: '3600s' }, (err, token) => {
                         if (err) {
                             res.json({ err });
                         }
@@ -193,7 +193,7 @@ router.post('/signin/', (req, res) => {
                                 ID: results[0].ID
                             }
 
-                            jwt.sign({ user }, 'secretkey', { expiresIn: '172800s' }, (err, token) => {
+                            jwt.sign({ user },  process.env.JWT_token, { expiresIn: '172800s' }, (err, token) => {
                                 if (err) {
                                     res.json({ err });
                                 }
@@ -323,7 +323,6 @@ router.post('/forgetpassword/otp/request', (req, res) => {
                 } else {
                     res.status(403).send({ msg: "account not found" })
                 }
-
             }).catch((err) => {
                 console.error(err);
             });
@@ -353,7 +352,7 @@ router.post('/forgetpassword/otp/send', (req, res) => {
                                 username: username,
                                 OTP: userOTP
                             }
-                            jwt.sign({ user }, 'secretkey', { expiresIn: '900s' }, (err, token) => {
+                            jwt.sign({ user },  process.env.JWT_token, { expiresIn: '900s' }, (err, token) => {
                                 if (err) {
                                     res.json({ err });
                                 }
@@ -401,7 +400,7 @@ router.post('/forgetpassword/newpassword', (req, res) => {
         const bearer = bearerHeader.split(' ');
         const bearerToken = bearer[1];
 
-        jwt.verify(bearerToken, 'secretkey', (err, authData) => {
+        jwt.verify(bearerToken,  process.env.JWT_token, (err, authData) => {
             if (err) {
                 res.sendStatus(403);
             } else {
@@ -423,7 +422,7 @@ router.post('/forgetpassword/newpassword', (req, res) => {
                                         username: authData.user.username,
                                         ID: results[0].ID
                                     }
-                                    jwt.sign({ user }, 'secretkey', { expiresIn: '172800s' }, (err, token) => {
+                                    jwt.sign({ user },  process.env.JWT_token, { expiresIn: '172800s' }, (err, token) => {
                                         if (err) {
                                             res.json({ err });
                                         }

@@ -28,7 +28,7 @@ function verifyToken(req, res, next) {
         req.token = bearerToken;
         // // Next middleware
         // next();
-        jwt.verify(req.token, 'secretkey', (err, authData) => {
+        jwt.verify(req.token, process.env.JWT_token, (err, authData) => {
             if (err) {
                 res.sendStatus(403);
             } else {
@@ -71,7 +71,7 @@ function checkLogin(req, res, next){
     // Check if bearer is undefined
     if (typeof bearerHeader !== 'undefined') {
         const bearer = bearerHeader.split(' ');
-        jwt.verify(bearer[1], 'secretkey', (err, authData) => {
+        jwt.verify(bearer[1],  process.env.JWT_token, (err, authData) => {
             if (err) {
                 next();
             } else {
