@@ -65,9 +65,9 @@ color: cornsilk;
 width: fit-content;
 padding: 5px;
 border-radius: 7px;
-background: linear-gradient(145deg, #0a7ad1, #0867b0);
-box-shadow:  2px 2px 4px #284256,
-             -2px -2px 4px #87a0b1;
+background: linear-gradient(145deg, #78a3c4, #5a98c7);
+box-shadow:  2px 2px 2px #284256,
+             -1px -1px 1px #87a0b1;
 }
 
 @media screen and (max-width: 550px) {
