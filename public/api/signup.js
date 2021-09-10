@@ -78,7 +78,7 @@ var user = {
                 return Response.json();
             })
             .then((getData) => {
-                document.querySelector("#alert-msg").innerHTML = getData.msg;
+                document.querySelector("#alert-msg2").innerHTML = getData.msg;
             }).catch((err) => {
                 console.log(err);
             });
