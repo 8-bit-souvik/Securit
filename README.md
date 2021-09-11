@@ -52,7 +52,7 @@ generate a key by selecting app: mail and your device </b></i> <br/>
 
 ## NPM package installation
 
-Install <b>Node JS<\b> to run this program in server side.
+Install <b>Node JS</b> to run this program in server side.
 open a terminal and go to it's root directory. <br/>
 type `npm install` to install all NPM libraries mentioned in package.json as dependencies
 
