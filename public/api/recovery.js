@@ -128,11 +128,11 @@ var recover = {
 document.querySelector("#ID-submit").addEventListener("click", (e) => {
     e.preventDefault();
     var userID = document.querySelector("#userID");
-    var alertMsg = document.querySelector("#alert-msg");
     if (userID.value == "") {
-        alertMsg.innerText = "please enter your email"
+        document.querySelector("#alert-msg").innerText = "please enter your email"
     } else {
         recover.sendEmail()
+        document.querySelector("#alert-msg").innerHTML = " <div class='loader'></div>";
     }
 })
 
@@ -140,11 +140,11 @@ document.querySelector("#ID-submit").addEventListener("click", (e) => {
 document.querySelector("#OTP-submit").addEventListener("click", (e) => {
     e.preventDefault();
     var recOTP = document.querySelector("#recOTP");
-    var alertMsg = document.querySelector("#alert-msg");
     if (recOTP.value == "") {
-        alertMsg.innerText = "please enter OTP"
+        document.querySelector("#alert-msg").innerText = "please enter OTP"
     } else {
         recover.sendOTP()
+        document.querySelector("#alert-msg").innerHTML = " <div class='loader'></div>";
     }
 })
 
@@ -157,6 +157,7 @@ document.querySelector("#password-submit").addEventListener("click", (e) => {
         alertMsg.innerText = "please enter a new password"
     } else {
         alertMsg.innerText = "";
+        document.querySelector("#alert-msg2").innerHTML = " <div class='loader'></div>";
         recover.resetPassword()
     }
 })

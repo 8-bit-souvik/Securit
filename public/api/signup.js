@@ -20,7 +20,6 @@ var user = {
             })
         })
             .then((Response) => {
-                console.log();
                 if (Response.status == 200) {
                     window.location.href = '/register'
                 } else {
@@ -104,21 +103,25 @@ var user = {
 document.querySelector("#data-submit").addEventListener("click", (e) => {
     e.preventDefault()
     user.signup()
+    document.querySelector("#alert-msg").innerHTML = " <div class='loader'></div>";
 });
 
 
 document.querySelector("#otp-submit").addEventListener("click", (e) => {
     e.preventDefault()
+    document.querySelector("#alert-msg2").innerHTML = " <div class='loader'></div>";
     user.otpSubmit()
 });
 
 
 document.querySelector("#otp-resend").addEventListener("click", (e) => {
     e.preventDefault()
+    document.querySelector("#alert-msg2").innerHTML = " <div class='loader'></div>";
     user.otpResend()
 });
 
 document.querySelector("#logout").addEventListener("click", (e) => {
     e.preventDefault()
+    document.querySelector("#alert-msg2").innerHTML = " <div class='loader'></div>";
     user.logout()
 })

@@ -2,8 +2,6 @@ var user = {
   login: function() {
       let username = document.querySelector("#username").value
       let password = document.querySelector("#password").value
-    //   console.log(username);
-    //   console.log(password);
       fetch("user/signin", {
         "method": "POST",
         "headers": {
@@ -35,5 +33,6 @@ var user = {
 
 document.querySelector("#submit").addEventListener("click", (e) => {
     e.preventDefault()
+    document.querySelector("#alert-msg").innerHTML = " <div class='loader'></div>";
     user.login()
 });
