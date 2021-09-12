@@ -49,25 +49,30 @@ router.post('/signup/', (req, res) => {
                     var today = new Date();
                     var OTP_timestamp = (Math.floor(today.getTime() / 1000));
 
-                    otp(email, OTP);
+                    otp(email, OTP)
+                        .then((result) => {
+                            db.promise().query(`INSERT INTO USERS VALUES('${username}', '${password}', '${ID}', '${email}', '0', '${uname}', '${OTP}', '${OTP_timestamp}', '0', '0')`);
 
-                    db.promise().query(`INSERT INTO USERS VALUES('${username}', '${password}', '${ID}', '${email}', '0', '${uname}', '${OTP}', '${OTP_timestamp}', '0', '0')`);
+                            // Mock user
+                            const user = {
+                                username: username,
+                                ID: ID
+                            }
 
-                    // Mock user
-                    const user = {
-                        username: username,
-                        ID: ID
-                    }
+                            jwt.sign({ user }, process.env.JWT_token, { expiresIn: '3600s' }, (err, token) => {
+                                if (err) {
+                                    res.json({ err });
+                                }
+                                res.cookie('authorization', `bearer ${token}`);
+                                res.cookie('active', 0);
+                                //res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
+                                res.status(200).send({ msg: `account created!! welcome ${username}, please verify your OTP sent to your email` });
+                            });
 
-                    jwt.sign({ user },  process.env.JWT_token, { expiresIn: '3600s' }, (err, token) => {
-                        if (err) {
-                            res.json({ err });
-                        }
-                        res.cookie('authorization', `bearer ${token}`);
-                        res.cookie('active', 0);
-                        //res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
-                        res.status(200).send({ msg: `account created!! welcome ${username}, please verify your OTP sent to your email` });
-                    });
+                        }).catch((err) => {
+                            res.status(500).send({ msg: `internal server error please contact with support team` });
+                            console.log(err);
+                        });
 
                 }
                 else {
@@ -155,15 +160,19 @@ router.post('/otp/resend', verifyToken, (req, res) => {
             var today = new Date();
             var OTP_timestamp = (Math.floor(today.getTime() / 1000));
 
-            otp(results[0].email, OTP);
-            let select = `UPDATE users  SET OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0' WHERE USERNAME= '${req.data.user.username}';`;
-            db.query(select, (error, results, fields) => {
-                if (error) {
-                    return console.error(error.message);
-                }
-                res.status(200).send({ msg: "OTP sent, check your your email" })
-            });
-
+            otp(results[0].email, OTP)
+                .then((result) => {
+                    let select = `UPDATE users  SET OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0' WHERE USERNAME= '${req.data.user.username}';`;
+                    db.query(select, (error, results, fields) => {
+                        if (error) {
+                            return console.error(error.message);
+                        }
+                        res.status(200).send({ msg: "OTP sent, check your your email" })
+                    });
+                }).catch((err) => {
+                    res.status(500).send({ msg: `internal server error please contact with support team` });
+                    console.log(err);
+                });
         } else {
             res.status(400).send({ msg: "something went wrong, try to relogin with userID and password after logout" });
         }
@@ -193,7 +202,7 @@ router.post('/signin/', (req, res) => {
                                 ID: results[0].ID
                             }
 
-                            jwt.sign({ user },  process.env.JWT_token, { expiresIn: '172800s' }, (err, token) => {
+                            jwt.sign({ user }, process.env.JWT_token, { expiresIn: '172800s' }, (err, token) => {
                                 if (err) {
                                     res.json({ err });
                                 }
@@ -204,15 +213,15 @@ router.post('/signin/', (req, res) => {
                             });
 
                         } else {
-                            
+
                             password_attempt++;
                             let select = `UPDATE users  SET password_attempt='${password_attempt}' WHERE USERNAME= '${username}'`;
                             db.query(select, (error, results, fields) => {
                                 if (error) {
                                     return console.error(error.message);
-                                } 
-                                    res.status(403).send({ msg: "wrong ID or password" });
-                                
+                                }
+                                res.status(403).send({ msg: "wrong ID or password" });
+
                             });
                         }
                     }
@@ -312,14 +321,20 @@ router.post('/forgetpassword/otp/request', (req, res) => {
                     var today = new Date();
                     var OTP_timestamp = (Math.floor(today.getTime() / 1000));
 
-                    otp(result[0][0].email, OTP);
-                    let select = `UPDATE users  SET OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0' WHERE USERNAME= '${username}';`;
-                    db.query(select, (error, results, fields) => {
-                        if (error) {
-                            return console.error(error.message);
-                        }
-                        res.send({ msg: "OTP sent, check your your email" })
-                    });
+                    otp(result[0][0].email, OTP)
+                        .then((result) => {
+                            let select = `UPDATE users  SET OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0' WHERE USERNAME= '${username}';`;
+                            db.query(select, (error, results, fields) => {
+                                if (error) {
+                                    return console.error(error.message);
+                                }
+                                res.send({ msg: "OTP sent, check your your email" })
+                            });
+                        }).catch((err) => {
+                            res.status(500).send({ msg: `internal server error please contact with support team` });
+                            console.log(err);
+                        });
+
                 } else {
                     res.status(403).send({ msg: "account not found" })
                 }
@@ -352,7 +367,7 @@ router.post('/forgetpassword/otp/send', (req, res) => {
                                 username: username,
                                 OTP: userOTP
                             }
-                            jwt.sign({ user },  process.env.JWT_token, { expiresIn: '900s' }, (err, token) => {
+                            jwt.sign({ user }, process.env.JWT_token, { expiresIn: '900s' }, (err, token) => {
                                 if (err) {
                                     res.json({ err });
                                 }
@@ -400,7 +415,7 @@ router.post('/forgetpassword/newpassword', (req, res) => {
         const bearer = bearerHeader.split(' ');
         const bearerToken = bearer[1];
 
-        jwt.verify(bearerToken,  process.env.JWT_token, (err, authData) => {
+        jwt.verify(bearerToken, process.env.JWT_token, (err, authData) => {
             if (err) {
                 res.sendStatus(403);
             } else {
@@ -422,7 +437,7 @@ router.post('/forgetpassword/newpassword', (req, res) => {
                                         username: authData.user.username,
                                         ID: results[0].ID
                                     }
-                                    jwt.sign({ user },  process.env.JWT_token, { expiresIn: '172800s' }, (err, token) => {
+                                    jwt.sign({ user }, process.env.JWT_token, { expiresIn: '172800s' }, (err, token) => {
                                         if (err) {
                                             res.json({ err });
                                         }
