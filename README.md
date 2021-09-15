@@ -2,7 +2,7 @@
 
 # snapshots
 
-![landing page](https://i.ibb.co/7SJSfnY/image.png)
+![landing page](https://i.ibb.co/VLWL1gj/image.png)
 <br/>
 ![login page](https://i.ibb.co/WGGMkQ6/image.png)
 ![home page](https://i.ibb.co/By8zKc6/image.png)
