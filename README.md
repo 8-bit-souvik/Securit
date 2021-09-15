@@ -36,6 +36,7 @@
   </em>
 </p>
 
+ <img src="https://img.shields.io/badge/file%20count-56-yellow" /> &nbsp; <img src="https://img.shields.io/badge/lines%20count-2860-green" />
 
 ## Intro
 
