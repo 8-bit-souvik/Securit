@@ -37,16 +37,16 @@ function verifyToken(req, res, next) {
                     if (error) {
                         return console.error(error.message);
                     }
-                    
+
                     if (results[0]) {
                         if (results[0].ID === authData.user.ID) {
                             req.data = authData;
                             next();
-                        }else{
-                            res.status(403).send({msg: `forbidden`});
+                        } else {
+                            res.status(403).send({ msg: `forbidden` });
                         }
-                    }else{
-                        res.status(403).send({msg: `forbidden`});
+                    } else {
+                        res.status(403).send({ msg: `forbidden` });
                     }
                 });
             }
@@ -58,8 +58,8 @@ function verifyToken(req, res, next) {
     }
 }
 
-function checkLogin(req, res, next){
-       // // Get auth header value
+function checkLogin(req, res, next) {
+    // // Get auth header value
     // const bearerHeader = req.headers['authorization'];
     req.name = undefined
     req.email = undefined
@@ -71,7 +71,7 @@ function checkLogin(req, res, next){
     // Check if bearer is undefined
     if (typeof bearerHeader !== 'undefined') {
         const bearer = bearerHeader.split(' ');
-        jwt.verify(bearer[1],  process.env.JWT_token, (err, authData) => {
+        jwt.verify(bearer[1], process.env.JWT_token, (err, authData) => {
             if (err) {
                 next();
             } else {
@@ -80,7 +80,7 @@ function checkLogin(req, res, next){
                     if (error) {
                         return console.error(error.message);
                     }
-                    
+
                     if (results[0]) {
                         if (results[0].ID === authData.user.ID) {
                             req.username = authData.user.username
@@ -88,10 +88,10 @@ function checkLogin(req, res, next){
                             req.email = results[0].email
                             req.active = results[0].active
                             next();
-                        }else{
+                        } else {
                             next();
                         }
-                    }else{
+                    } else {
                         next();
                     }
                 });
@@ -103,4 +103,19 @@ function checkLogin(req, res, next){
     }
 }
 
-module.exports = {verifyToken, checkLogin};
+function check(cred) {
+    var chars = /^[A-Za-z0-9{@_. -!}]+$/;
+    for (let i = 0; i < cred.length; i++) {
+        if (cred[i]) {
+            if (cred[i].match(chars)) {
+            } else {
+                return false;
+            }
+        } else {
+            continue;
+        }
+    }
+    return true;
+}
+
+module.exports = { verifyToken, checkLogin, check };

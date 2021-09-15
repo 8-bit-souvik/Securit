@@ -1,10 +1,11 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
-const db = require('./dataBase');
 const uuid = require('uuid');
+const shajs = require('sha.js');
+const db = require('./dataBase');
 const otp = require('./otp');
-const {verifyToken} = require('./verify');
+const { verifyToken, check } = require('./verify');
 const router = express.Router();
 const app = express();
 app.use(cookieParser());
@@ -24,6 +25,60 @@ app.use(cookieParser());
 //     }
 // })
 
+
+
+//to prevent SQL injection && XSS attack through username, email, name
+router.use((req, res, next) => {
+    const { username, email, uname } = req.body;
+    const cred = [username, email, uname];
+    let valid = check(cred)
+    if (valid) {
+        next();
+    } else {
+        res.status(403).send({ msg: 'ERROR: only [ A-Za-z0-9{@_. -(){}[]!} ] can be used as username, email and name' })
+    }
+})
+
+//password hashing
+router.use((req, res, next) => {
+    var { password, userOTP, newPassword } = req.body;
+
+    const hash = (key) => {
+        for (let i = 0; i < key.length; i++) {
+            if (key[i] == "'" || key[i] == '"' || key[i] == "`") {
+                if (key[i - 1] != "\\") {
+                    var part1 = key.slice(0, i);
+                    var part2 = key.slice(i, key.length);
+                    part1 = part1 + '\\';
+                    key = part1.concat(part2);
+                }
+            }
+        }
+        key = (new shajs.sha1().update(`${key}`).digest('hex'))
+        return key;
+    }
+
+    if (password) {
+        password = hash(password);
+        req.body.password = password;
+    }
+
+    if (userOTP) {
+        userOTP = hash(userOTP);
+        req.body.userOTP = userOTP;
+    }
+
+    if (newPassword) {
+        newPassword = hash(newPassword);
+        req.body.newPassword = newPassword;
+    }
+
+    next();
+
+})
+
+
+
 router.get('/test', (req, res) => {
     res.json({ msg: "router working" })
     console.log(req.body);
@@ -33,8 +88,7 @@ router.post('/signup/', (req, res) => {
     const { username, email, password, uname } = req.body;
     if (username && email && password && uname) {
         try {
-
-            let select = `SELECT USERNAME FROM users WHERE USERNAME= '${username}'`;
+            let select = `SELECT USERNAME, active FROM users WHERE USERNAME= '${username}'`;
             db.query(select, (error, results, fields) => {
                 if (error) {
                     return console.error(error.message);
@@ -51,7 +105,8 @@ router.post('/signup/', (req, res) => {
 
                     otp(email, OTP)
                         .then((result) => {
-                            db.promise().query(`INSERT INTO USERS VALUES('${username}', '${password}', '${ID}', '${email}', '0', '${uname}', '${OTP}', '${OTP_timestamp}', '0', '0')`);
+                            OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
+                            db.promise().query(`INSERT INTO USERS VALUES('${username}', '${password}', '${ID}', '${email}', '0', '${uname}', '${OTP_timestamp}', '0', '0', '${OTP}')`);
 
                             // Mock user
                             const user = {
@@ -74,6 +129,41 @@ router.post('/signup/', (req, res) => {
                             console.log(err);
                         });
 
+                } else if (results[0].active === 0) {
+                    var ID = uuid.v4();
+                    function randomInt(max, min) {
+                        var num = (Math.floor(Math.random() * (max - min)) + min);
+                        return num;
+                    }
+                    var OTP = randomInt(10000, 99999);
+                    var today = new Date();
+                    var OTP_timestamp = (Math.floor(today.getTime() / 1000));
+
+                    otp(email, OTP)
+                        .then((result) => {
+                            OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
+                            db.promise().query(`UPDATE users  SET username='${username}', password='${password}', ID='${ID}', active='0', name='${uname}', email='${email}', OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0', password_attempt='0' WHERE USERNAME= '${username}';`);
+
+                            // Mock user
+                            const user = {
+                                username: username,
+                                ID: ID
+                            }
+
+                            jwt.sign({ user }, process.env.JWT_token, { expiresIn: '3600s' }, (err, token) => {
+                                if (err) {
+                                    res.json({ err });
+                                }
+                                res.cookie('authorization', `bearer ${token}`);
+                                res.cookie('active', 0);
+                                //res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
+                                res.status(200).send({ msg: `account created!! welcome ${username}, please verify your OTP sent to your email` });
+                            });
+
+                        }).catch((err) => {
+                            res.status(500).send({ msg: `internal server error please contact with support team` });
+                            console.log(err);
+                        });
                 }
                 else {
                     res.status(403).send({ msg: "this username already exists, try another unique username" })
@@ -162,6 +252,7 @@ router.post('/otp/resend', verifyToken, (req, res) => {
 
             otp(results[0].email, OTP)
                 .then((result) => {
+                    OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
                     let select = `UPDATE users  SET OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0' WHERE USERNAME= '${req.data.user.username}';`;
                     db.query(select, (error, results, fields) => {
                         if (error) {
@@ -323,6 +414,7 @@ router.post('/forgetpassword/otp/request', (req, res) => {
 
                     otp(result[0][0].email, OTP)
                         .then((result) => {
+                            OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
                             let select = `UPDATE users  SET OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0' WHERE USERNAME= '${username}';`;
                             db.query(select, (error, results, fields) => {
                                 if (error) {
