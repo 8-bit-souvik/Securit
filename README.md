@@ -13,6 +13,7 @@ home page:
 ![dashboard](https://i.ibb.co/2qmm0Ng/image.png)
 ![navigation bar](https://i.ibb.co/426wLr1/image.png)
 ![settings](https://i.ibb.co/4dWzHCF/image.png)
+![options](https://i.ibb.co/vdXsXKq/image.png)
 
 
 <br/>
