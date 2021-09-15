@@ -12,6 +12,8 @@ home page:
 ![home page](https://i.ibb.co/YcvRTPd/image.png)
 ![navigation bars](https://i.ibb.co/2qmm0Ng/image.png)
 
+<br/>
+<br/>
 # environment setup
 
 ## Database Building
