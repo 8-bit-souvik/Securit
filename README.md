@@ -2,9 +2,12 @@
 
 # snapshots
 
+landing page:
 ![landing page](https://i.ibb.co/VLWL1gj/image.png)
 <br/>
+login page:
 ![login page](https://i.ibb.co/WGGMkQ6/image.png)
+home page:
 ![home page](https://i.ibb.co/YcvRTPd/image.png)
 ![navigation bars](https://i.ibb.co/2qmm0Ng/image.png)
 
