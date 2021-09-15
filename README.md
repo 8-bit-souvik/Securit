@@ -4,7 +4,42 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
-[SecurIt](http://https://github.com/8-bit-souvik/Securit-secure-logging-system/) is a Node JS appllication
+
+<p align="center">
+  <em>
+    JavaScript
+    · Node JS
+    · Express
+  </em>
+  <br />
+  <em>
+    API
+    · JSON
+    · mysql2
+  </em>
+  <br />
+  <em>
+    HTML
+    · CSS
+    · Handlebars
+  </em>
+  <br />
+  <em>
+    Cookies
+    · JsonWebToken
+  </em>
+  <br />
+  <em>
+    <a href="https://github.com/8-bit-souvik/Securit-secure-logging-system">
+      Your favorite tool?
+    </a>
+  </em>
+</p>
+
+
+## Intro
+
+[SecurIt](https://github.com/8-bit-souvik/Securit-secure-logging-system) is a Node JS appllication
 to build a demo of secure logging system as an essential backend part of any user interactable web application.
 
 <br/>
@@ -30,19 +65,18 @@ rest of them auxiliary dependencies are:
 
 ## snapshots
 
-landing page:
-![landing page](https://i.ibb.co/VLWL1gj/image.png)
-<br/>
-login page:
-![login page](https://i.ibb.co/WGGMkQ6/image.png)
-<br/>
-home page:
-![home page](https://i.ibb.co/YcvRTPd/image.png)
-![dashboard](https://i.ibb.co/2qmm0Ng/image.png)
-![navigation bar](https://i.ibb.co/426wLr1/image.png)
-![settings](https://i.ibb.co/4dWzHCF/image.png)
-![options](https://i.ibb.co/vdXsXKq/image.png)
+<p align="center">
+  <img width="90%" src="https://i.ibb.co/VLWL1gj/image.png" />
 
+<br/>
+  <img width="40%" src="https://i.ibb.co/WGGMkQ6/image.png" />
+  <img width="40%" src="https://i.ibb.co/YcvRTPd/image.png" />
+
+![dashboard](https://i.ibb.co/2qmm0Ng/image.png) &nbsp; &nbsp;
+![navigation bar](https://i.ibb.co/426wLr1/image.png) &nbsp; &nbsp;
+![settings](https://i.ibb.co/4dWzHCF/image.png) &nbsp; &nbsp;
+![options](https://i.ibb.co/vdXsXKq/image.png)
+</p>
 
 <br/>
 <br/>
