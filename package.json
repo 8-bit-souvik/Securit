@@ -19,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",
     "nodemailer": "^6.6.3",
+    "sha.js": "^2.4.11",
     "uuid": "^8.3.2"
   }
 }
