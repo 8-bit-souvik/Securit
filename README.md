@@ -7,6 +7,7 @@ landing page:
 <br/>
 login page:
 ![login page](https://i.ibb.co/WGGMkQ6/image.png)
+<br/>
 home page:
 ![home page](https://i.ibb.co/YcvRTPd/image.png)
 ![navigation bars](https://i.ibb.co/2qmm0Ng/image.png)
