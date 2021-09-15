@@ -1,5 +1,12 @@
 # Securit-secure-logging-system
 
+# snapshots
+
+![landing page](https://ibb.co/7SJSfnY)
+![login page](https://ibb.co/Dzzv9Nt)
+![home page](https://ibb.co/By8zKc6)
+![navigation bars](https://ibb.co/2qmm0Ng)
+
 # environment setup
 
 ## Database Building
