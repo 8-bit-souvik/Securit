@@ -45,7 +45,7 @@
 
 ## Intro
 
-[SecurIt](https://github.com/8-bit-souvik/Securit-secure-logging-system) is a Node JS appllication
+[SecurIt](https://github.com/8-bit-souvik/Securit-secure-logging-system) is a Node JS application
 to build a demo of secure logging system as an essential backend part of any user interactable web application.
 
 <br/>
