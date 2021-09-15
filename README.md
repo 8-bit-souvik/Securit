@@ -36,7 +36,12 @@
   </em>
 </p>
 
- <img src="https://img.shields.io/badge/file%20count-56-yellow" /> &nbsp; <img src="https://img.shields.io/badge/lines%20count-2860-green" />
+<p align="center">
+ <img src="https://img.shields.io/badge/file%20count-56-yellow" /> 
+ <img src="https://img.shields.io/badge/lines%20count-2860-brightgreen" /> 
+ <img src="https://img.shields.io/badge/repo%20size-5.4MB-blue" />
+ <img src="https://img.shields.io/github/last-commit/8-bit-souvik/Securit-secure-logging-system" /> 
+ </p>
 
 ## Intro
 
