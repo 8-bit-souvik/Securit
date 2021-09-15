@@ -1,6 +1,34 @@
-# Securit-secure-logging-system
+<p align="center">
+ <img width="70%" src="public/form/images/logo-light.svg" />
+</p>
 
-# snapshots
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[SecurIt](http://https://github.com/8-bit-souvik/Securit-secure-logging-system/) is a Node JS appllication
+to build a demo of secure logging system as an essential backend part of any user interactable web application.
+
+<br/>
+
+main dependencies for this application:
+
+- express
+- express-handlebars
+- mysql2
+- jsonwebtoken
+- nodemailer
+
+rest of them auxiliary dependencies are:
+
+- cookie-parser
+- cors
+- dotenv
+- sha.js
+- uuid
+
+<br/>
+<br/>
+
+## snapshots
 
 landing page:
 ![landing page](https://i.ibb.co/VLWL1gj/image.png)
