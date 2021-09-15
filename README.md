@@ -2,10 +2,10 @@
 
 # snapshots
 
-![landing page](https://ibb.co/7SJSfnY)
+![landing page](https://i.ibb.co/7SJSfnY/image.png)
 ![login page](https://i.ibb.co/WGGMkQ6/image.png)
-![home page](https://ibb.co/By8zKc6)
-![navigation bars](https://ibb.co/2qmm0Ng)
+![home page](https://i.ibb.co/By8zKc6/image.png)
+![navigation bars](https://i.ibb.co/2qmm0Ng/image.png)
 
 # environment setup
 
