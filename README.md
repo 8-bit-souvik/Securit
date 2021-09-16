@@ -77,52 +77,52 @@ SecureIt
 │       
 ├───public      
 │   │                                                                     
-│   └────|                                               
-│        ├─account───────────────────────────────────────|
-├        |                                               ├─1dashboard (1 file)
-|        ├─api  (4 files)                                |
-│        |                                               ├─1home ──────────────────────────────────├──css (1 file)
-│        ├─assets──────────────|                         |                                         |
-|        |                     ├─css (1 file)            ├─1setting ────────────├─css (1 file)     ├──images (1 file)
-│        ├─form                |                         |                      |
-|        |                     ├─icons (5 files)         ├─css (1 file)         ├─icons (1 file)
-|        ├─css (4 files)       |                         |                      |
-│        |                     ├─images (5 files)        ├─icons (5 files)      ├─javascript (1 file)
-|        ├─js (4 files)        |                         |
-│        |                     ├─javascript (1 file)     ├─javascript (1 file)
+│   └────│                                               
+│        ├─account───────────────────────────────────────│
+│        │                                               ├─1dashboard (1 file)
+│        ├─api  (4 files)                                │
+│        │                                               ├─1home ──────────────────────────────────├──css (1 file)
+│        ├─assets──────────────│                         │                                         │
+│        │                     ├─css (1 file)            ├─1setting ────────────├─css (1 file)     ├──images (1 file)
+│        ├─form                │                         │                      │
+│        │                     ├─icons (5 files)         ├─css (1 file)         ├─icons (1 file)
+│        ├─css (4 files)       │                         │                      │
+│        │                     ├─images (5 files)        ├─icons (5 files)      ├─javascript (1 file)
+│        ├─js (4 files)        │                         │
+│        │                     ├─javascript (1 file)     ├─javascript (1 file)
 │        ├─images (1file)
 │ 
 ├───src       
-|   |   
-│   └─|   
+│   │   
+│   └─│   
 │     ├───app.j
-|     ├───bataBase.js 
+│     ├───bataBase.js 
 │     ├───otp.js   
-|     ├───template.js  
-|     ├───user.js  
+│     ├───template.js  
+│     ├───user.js  
 │     ├───verify.js 
-|
-|
+│
+│
 ├───views
-|       |
-|       └─├──────────layouts ────main.handlebars                
-|         |  
-|         ├───dashboard.handlebars
-|         ├───home.handlebars
-|         ├───index.handlebars
-|         ├───login.handlebars
-|         ├───recovery.handlebars
-|         ├───register.handlebars
-|         ├───setting.handlebars
-|
+│       │
+│       └─├──────────layouts ────main.handlebars                
+│         │  
+│         ├───dashboard.handlebars
+│         ├───home.handlebars
+│         ├───index.handlebars
+│         ├───login.handlebars
+│         ├───recovery.handlebars
+│         ├───register.handlebars
+│         ├───setting.handlebars
+│
 ├───.env  
-|
+│
 ├───.gitignore
-|
+│
 ├───packege-lock.json 
-|
+│
 ├───packege.json
-|
+│
 ├───readme.md
 
 ```  
