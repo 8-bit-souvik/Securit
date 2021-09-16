@@ -93,14 +93,14 @@ SecureIt
 │       ├─api  (4 files)                            │
 │       │                                           ├─1home ─────────────────────────────├──css (1 file)
 │       ├─assets────────────│                       │                                    │
-│       │                   ├─css (1 file)          ├─1setting ─────────├─css (1 file)   ├──images (1 file)
+│       │                   ├─css (1 file)          ├─1setting ─────────├─css (1 file)   └──images (1 file)
 │       ├─form              │                       │                   │
 │       │                   ├─icons (5 files)       ├─css (1 file)      ├─icons (1 file)
 │       ├─css (4 files)     │                       │                   │
-│       │                   ├─images (5 files)      ├─icons (5 files)   ├─javascript (1 file)
+│       │                   ├─images (5 files)      ├─icons (5 files)   └─javascript (1 file)
 │       ├─js (4 files)      │                       │
-│       │                   ├─javascript (1 file)   ├─javascript (1 file)
-│       ├─images (1file)
+│       │                   └─javascript (1 file)   └─javascript (1 file)
+│       └─images (1file)
 │ 
 ├───src       
 │   │   
@@ -110,7 +110,7 @@ SecureIt
 │       ├───otp.js   
 │       ├───template.js  
 │       ├───user.js  
-│       ├───verify.js 
+│       └───verify.js 
 │
 │
 ├───views
@@ -123,7 +123,7 @@ SecureIt
 │        ├───login.handlebars
 │        ├───recovery.handlebars
 │        ├───register.handlebars
-│        ├───setting.handlebars
+│        └───setting.handlebars
 │
 ├───.env  
 │
@@ -133,7 +133,7 @@ SecureIt
 │
 ├───packege.json
 │
-├───readme.md
+└───readme.md
 
 ```  
 
