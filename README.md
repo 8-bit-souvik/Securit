@@ -82,50 +82,37 @@ to build a demo of secure logging system as an essential backend part of any use
   
 ```
 SecureIt
-│   
-├───node Modules                 
-│       
-├───public      
-│   │                                                                     
-│   └───│                                               
-│       ├─account───────────────────────────────────│
-│       │                                           ├─1dashboard (1 file)
-│       ├─api  (4 files)                            │
-│       │                                           ├─1home ─────────────────────────────├──css (1 file)
-│       ├─assets────────────│                       │                                    │
-│       │                   ├─css (1 file)          ├─1setting ─────────├─css (1 file)   └──images (1 file)
-│       ├─form              │                       │                   │
-│       │                   ├─icons (5 files)       ├─css (1 file)      ├─icons (1 file)
-│       ├─css (4 files)     │                       │                   │
-│       │                   ├─images (5 files)      ├─icons (5 files)   └─javascript (1 file)
-│       ├─js (4 files)      │                       │
-│       │                   └─javascript (1 file)   └─javascript (1 file)
-│       └─images (1file)
-│ 
-├───src       
-│   │   
-│   └───│   
-│       ├───app.js
-│       ├───bataBase.js 
-│       ├───otp.js   
-│       ├───template.js  
-│       ├───user.js  
-│       └───verify.js 
+├───.vscode
+├───node_modules                             # all node/NPM modules are here
+├───public                                   # styles, fonts, images are statically served from here
+│   ├───account
+│   │   ├───1dashboard
+│   │   ├───1home
+│   │   │   ├───css
+│   │   │   └───images
+│   │   ├───1setting
+│   │   │   ├───css
+│   │   │   ├───icons
+│   │   │   └───javascript       
+│   │   ├───css
+│   │   ├───icons
+│   │   └───javascript
+│   ├───api                                   # API client at front-end
+│   ├───assets
+│   │   ├───css
+│   │   ├───icons
+│   │   ├───images
+│   │   └───javascript
+│   └───form
+│       ├───css
+│       ├───images
+│       └───js
+├───src                                       # Total backend processing is performed here
 │
+├───views                                     # frontend templates are here
+│    └───layouts
 │
-├───views
-│   │    
-│   └────├──────────layouts ────main.handlebars                
-│        │  
-│        ├───dashboard.handlebars
-│        ├───home.handlebars
-│        ├───index.handlebars
-│        ├───login.handlebars
-│        ├───recovery.handlebars
-│        ├───register.handlebars
-│        └───setting.handlebars
-│
-├───.env  
+├───.env                                      # All keys, passwords and other secrets will be written here
 │
 ├───.gitignore
 │
