@@ -50,21 +50,82 @@ to build a demo of secure logging system as an essential backend part of any use
 
 <br/>
 
-main dependencies for this application:
+### 💻 Tech Stack
 
-- express
-- express-handlebars
-- mysql2
-- jsonwebtoken
-- nodemailer
+### Front-End:
+<img alt="handlebars" src="https://img.shields.io/badge/handlebars%20-%23ffac2f.svg?&style=for-the-badge"/>  <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> 
+<img alt="BootStrap" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/> 
 
-rest of them auxiliary dependencies are:
+### Back-End:
+<img alt="Javascript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img alt="nodeJS" src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"/>    <img alt="expressJS" src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>    
 
-- cookie-parser
-- cors
-- dotenv
-- sha.js
-- uuid
+### Data-Base:
+<img alt="mtSQL" src ="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white"/> 
+
+### Other:
+<img alt="JWT" src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens"/> <img alt="GIT" src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"/>  <img alt="NPM" src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white"/>
+
+
+<br/>
+
+### File Structure
+  
+```
+SecureIt
+│   
+├───node Modules                 
+│       
+├───public      
+│   │                                                                     
+│   └────|                                               
+│        ├─account───────────────────────────────────────|
+├        |                                               ├─1dashboard (1 file)
+|        ├─api  (4 files)                                |
+│        |                                               ├─1home ──────────────────────────────────├──css (1 file)
+│        ├─assets──────────────|                         |                                         |
+|        |                     ├─css (1 file)            ├─1setting ────────────├─css (1 file)     ├──images (1 file)
+│        ├─form                |                         |                      |
+|        |                     ├─icons (5 files)         ├─css (1 file)         ├─icons (1 file)
+|        ├─css (4 files)       |                         |                      |
+│        |                     ├─images (5 files)        ├─icons (5 files)      ├─javascript (1 file)
+|        ├─js (4 files)        |                         |
+│        |                     ├─javascript (1 file)     ├─javascript (1 file)
+│        ├─images (1file)
+│ 
+├───src       
+|   |   
+│   └─|   
+│     ├───app.j
+|     ├───bataBase.js 
+│     ├───otp.js   
+|     ├───template.js  
+|     ├───user.js  
+│     ├───verify.js 
+|
+|
+├───views
+|       |
+|       └─├──────────layouts ────main.handlebars                
+|         |  
+|         ├───dashboard.handlebars
+|         ├───home.handlebars
+|         ├───index.handlebars
+|         ├───login.handlebars
+|         ├───recovery.handlebars
+|         ├───register.handlebars
+|         ├───setting.handlebars
+|
+├───.env  
+|
+├───.gitignore
+|
+├───packege-lock.json 
+|
+├───packege.json
+|
+├───readme.md
+
+```  
 
 <br/>
 <br/>
