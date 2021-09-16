@@ -75,9 +75,9 @@ rest of them auxiliary dependencies are:
   <img width="90%" src="https://i.ibb.co/VLWL1gj/image.png" />
 
 <br/>
-  <img width="40%" src="https://i.ibb.co/WGGMkQ6/image.png" />
-  <img width="40%" src="https://i.ibb.co/YcvRTPd/image.png" />
-&nbsp; &nbsp;  &nbsp; <img width="20%" src="https://i.ibb.co/2qmm0Ng/image.png" alt="dashboard"/> &nbsp;
+&nbsp;  <img width="45%" src="https://i.ibb.co/WGGMkQ6/image.png" />
+  <img width="45%" src="https://i.ibb.co/YcvRTPd/image.png" />
+&nbsp; &nbsp; <img width="20%" src="https://i.ibb.co/2qmm0Ng/image.png" alt="dashboard"/> &nbsp;
 <img width="20%" src="https://i.ibb.co/426wLr1/image.png" alt="navigation bar"/> &nbsp;
 <img width="20%" src="https://i.ibb.co/4dWzHCF/image.png" alt="settings"/> &nbsp;
 <img width="20%" src="https://i.ibb.co/vdXsXKq/image.png" alt="options"/>
