@@ -48,27 +48,37 @@
 [SecurIt](https://github.com/8-bit-souvik/Securit-secure-logging-system) is a Node JS application
 to build a demo of secure logging system as an essential backend part of any user interactable web application.
 
+## Summery
+
+- User can sign up by providing their user ID, name, and email address along with password.
+- An OTP will be sent to their email address which will be valid for 2 hours.
+- After submitting OTP (for verification) user can enter into home page and get access to their account.
+- user can Logout / Login there account.
+- In case of password forgotten user can recover their account by forget password option.
+- A JSON Web Token will be saved to keep user logged in for limited time period.
+- User can change there data/credentials in settings option.
+
 <br/>
 
-### 💻 Tech Stack
+## 💻 Tech Stack
 
-### Front-End:
+#### Front-End:
 <img alt="handlebars" src="https://img.shields.io/badge/handlebars%20-%23ffac2f.svg?&style=for-the-badge"/>  <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> 
 <img alt="BootStrap" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/> 
 
-### Back-End:
+#### Back-End:
 <img alt="Javascript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img alt="nodeJS" src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"/>    <img alt="expressJS" src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>    
 
-### Data-Base:
+#### Data-Base:
 <img alt="mtSQL" src ="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white"/> 
 
-### Other:
+#### Other:
 <img alt="JWT" src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens"/> <img alt="GIT" src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"/>  <img alt="NPM" src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white"/>
 
 
 <br/>
 
-### File Structure
+## File Structure
   
 ```
 SecureIt
@@ -95,7 +105,7 @@ SecureIt
 ├───src       
 │   │   
 │   └───│   
-│       ├───app.j
+│       ├───app.js
 │       ├───bataBase.js 
 │       ├───otp.js   
 │       ├───template.js  
