@@ -213,4 +213,4 @@ go to the browser and type URL `localhost:5510`<br/>
 <br/>
 <br/>
 
-<b>for any kind of problem or queries contact me </b>
+<b>for any kind of problem or queries contact me on [Linkedin](https://www.linkedin.com/in/souvikmandal20/)</b>
