@@ -48,15 +48,15 @@
 [SecurIt](https://github.com/8-bit-souvik/Securit-secure-logging-system) is a Node JS application
 to build a demo of secure logging system as an essential backend part of any user interactable web application.
 
-## Summery
+## Summary
 
-- User can sign up by providing their user ID, name, and email address along with password.
+- Users can sign up by providing their user ID, name, and email address along with a password.
 - An OTP will be sent to their email address which will be valid for 2 hours.
-- After submitting OTP (for verification) user can enter into home page and get access to their account.
-- user can Logout / Login there account.
-- In case of password forgotten user can recover their account by forget password option.
-- A JSON Web Token will be saved to keep user logged in for limited time period.
-- User can change there data/credentials in settings option.
+- After submitting OTP (for verification) users can enter into the home page and get access to their account.
+- user can Logout / Login their account.
+- In case of password forgotten user can recover their account by the forget password option.
+- A JSON Web Token will be saved to keep a user logged in for a limited time period.
+- Users can change their data/credentials in the settings option.
 
 <br/>
 
@@ -157,7 +157,7 @@ SecureIt
 <br/>
 <br/>
 
-# environment setup
+# Environment setup
 
 ## Database Building
 
