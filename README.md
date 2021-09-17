@@ -97,7 +97,7 @@ SecureIt
 │   │   ├───css
 │   │   ├───icons
 │   │   └───javascript
-│   ├───api                                   # API client at front-end
+│   ├───api                                   # API client in front-end
 │   ├───assets
 │   │   ├───css
 │   │   ├───icons
