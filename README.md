@@ -85,7 +85,7 @@ SecureIt
 ├───.vscode
 ├───node_modules                             # all node/NPM modules are here
 ├───public                                   # styles, fonts, images are statically served from here
-│   ├───account
+│   ├───account                              # Styles for account section (after login)
 │   │   ├───1dashboard
 │   │   ├───1home
 │   │   │   ├───css
@@ -98,12 +98,12 @@ SecureIt
 │   │   ├───icons
 │   │   └───javascript
 │   ├───api                                   # API client in front-end
-│   ├───assets
+│   ├───assets                                # Styles for landing page and docs
 │   │   ├───css
 │   │   ├───icons
 │   │   ├───images
 │   │   └───javascript
-│   └───form
+│   └───form                                  # Styles for credentials submission form
 │       ├───css
 │       ├───images
 │       └───js
@@ -112,7 +112,7 @@ SecureIt
 ├───views                                     # frontend templates are here
 │    └───layouts
 │
-├───.env                                      # All keys, passwords and other secrets will be written here
+├───.env                                      # All keys, passwords and other secrets will be here
 │
 ├───.gitignore
 │
