@@ -42,6 +42,11 @@
  <img src="https://img.shields.io/badge/repo%20size-5.4MB-blue" />
  <img src="https://img.shields.io/github/last-commit/8-bit-souvik/Securit-secure-logging-system" /> 
  </p>
+ 
+ <br/>
+ 
+## [click here to watch demo of this project](https://youtu.be/KaTPDzhaejM)
+
 
 ## Intro
 
