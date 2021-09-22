@@ -88,8 +88,8 @@ router.post('/signup/', (req, res) => {
     const { username, email, password, uname } = req.body;
     if (username && email && password && uname) {
         try {
-            let select = `SELECT USERNAME, active FROM users WHERE USERNAME= '${username}'`;
-            db.query(select, (error, results, fields) => {
+            let select = `SELECT USERNAME, active FROM users WHERE USERNAME= ?`;
+            db.query(select, [username], (error, results, fields) => {
                 if (error) {
                     return console.error(error.message);
                 }
@@ -106,7 +106,7 @@ router.post('/signup/', (req, res) => {
                     otp(email, OTP)
                         .then((result) => {
                             OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
-                            db.promise().query(`INSERT INTO USERS VALUES('${username}', '${password}', '${ID}', '${email}', '0', '${uname}', '${OTP_timestamp}', '0', '0', '${OTP}')`);
+                            db.promise().query(`INSERT INTO USERS VALUES(?, ?, ?, ?, '0', ?, ?, '0', '0', ?)`, [username, password, ID, email, uname, OTP_timestamp, OTP]);
 
                             // Mock user
                             const user = {
@@ -142,7 +142,7 @@ router.post('/signup/', (req, res) => {
                     otp(email, OTP)
                         .then((result) => {
                             OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
-                            db.promise().query(`UPDATE users  SET username='${username}', password='${password}', ID='${ID}', active='0', name='${uname}', email='${email}', OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0', password_attempt='0' WHERE USERNAME= '${username}';`);
+                            db.promise().query(`UPDATE users  SET username= ?, password= ?, ID= ?, active='0', name= ?, email= ?, OTP= ?, OTP_timestamp= ?, OTP_attempt='0', password_attempt='0' WHERE USERNAME= ?;`, [username, password, ID, uname, email, OTP, OTP_timestamp, username]);
 
                             // Mock user
                             const user = {
@@ -182,8 +182,8 @@ router.post('/signup/', (req, res) => {
 router.post('/otp/activate', verifyToken, (req, res) => {
     const { userOTP } = req.body;
     authData = req.data;
-    let select = `SELECT USERNAME, ID, OTP, OTP_timestamp, OTP_attempt FROM users WHERE USERNAME= '${authData.user.username}'`;
-    db.query(select, (error, results, fields) => {
+    let select = `SELECT USERNAME, ID, OTP, OTP_timestamp, OTP_attempt FROM users WHERE USERNAME= ?`;
+    db.query(select, [authData.user.username], (error, results, fields) => {
         if (error) {
             return console.error(error.message);
         }
@@ -194,8 +194,8 @@ router.post('/otp/activate', verifyToken, (req, res) => {
                     var today = new Date();
                     if (((Math.floor(today.getTime() / 1000)) - results[0].OTP_timestamp) < 7200) {
                         if (results[0].OTP == userOTP) {
-                            let select = `UPDATE users  SET active='1', OTP=NULL, OTP_timestamp=NULL, OTP_attempt='0' WHERE USERNAME= '${authData.user.username}';`;
-                            db.query(select, (error, results, fields) => {
+                            let select = `UPDATE users  SET active='1', OTP=NULL, OTP_timestamp=NULL, OTP_attempt='0' WHERE USERNAME= ?;`;
+                            db.query(select, [authData.user.username], (error, results, fields) => {
                                 if (error) {
                                     return console.error(error.message);
                                 }
@@ -204,8 +204,8 @@ router.post('/otp/activate', verifyToken, (req, res) => {
                             });
                         } else {
                             OTP_attempt++;
-                            let select = `UPDATE users  SET OTP_attempt='${OTP_attempt}' WHERE USERNAME= '${authData.user.username}';`;
-                            db.query(select, (error, results, fields) => {
+                            let select = `UPDATE users  SET OTP_attempt= ? WHERE USERNAME= ?;`;
+                            db.query(select, [OTP_attempt, authData.user.username], (error, results, fields) => {
                                 if (error) {
                                     return console.error(error.message);
                                 } if (OTP_attempt < 3) {
@@ -235,8 +235,8 @@ router.post('/otp/activate', verifyToken, (req, res) => {
 
 router.post('/otp/resend', verifyToken, (req, res) => {
 
-    let select = `SELECT ID, email FROM users WHERE USERNAME= '${req.data.user.username}'`;
-    db.query(select, (error, results, fields) => {
+    let select = `SELECT ID, email FROM users WHERE USERNAME= ?`;
+    db.query(select, [req.data.user.username], (error, results, fields) => {
         if (error) {
             return console.error(error.message);
         }
@@ -253,8 +253,8 @@ router.post('/otp/resend', verifyToken, (req, res) => {
             otp(results[0].email, OTP)
                 .then((result) => {
                     OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
-                    let select = `UPDATE users  SET OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0' WHERE USERNAME= '${req.data.user.username}';`;
-                    db.query(select, (error, results, fields) => {
+                    let select = `UPDATE users  SET OTP= ?, OTP_timestamp= ?, OTP_attempt='0' WHERE USERNAME= ?;`;
+                    db.query(select, [OTP, OTP_timestamp, req.data.user.username],  (error, results, fields) => {
                         if (error) {
                             return console.error(error.message);
                         }
@@ -274,9 +274,8 @@ router.post('/signin/', (req, res) => {
     const { username, password } = req.body;
     if (username && password) {
         try {
-
-            let select = `SELECT ID, password, password_attempt, active FROM users WHERE USERNAME= '${username}'`;
-            db.query(select, (error, results, fields) => {
+            let select = `SELECT ID, password, password_attempt, active FROM users WHERE USERNAME= ? `;
+            db.query(select, [username], (error, results, fields) => {
                 if (error) {
                     return console.error(error.message);
                 }
@@ -285,7 +284,7 @@ router.post('/signin/', (req, res) => {
                     if (password_attempt < 20) {
                         if (results[0].password === password) {
 
-                            db.promise().query(`UPDATE USERS SET password_attempt= '0' WHERE USERNAME ='${username}'`);
+                            db.promise().query(`UPDATE USERS SET password_attempt= '0' WHERE USERNAME = ?`, [username]);
 
                             // Mock user
                             const user = {
@@ -306,8 +305,8 @@ router.post('/signin/', (req, res) => {
                         } else {
 
                             password_attempt++;
-                            let select = `UPDATE users  SET password_attempt='${password_attempt}' WHERE USERNAME= '${username}'`;
-                            db.query(select, (error, results, fields) => {
+                            let select = `UPDATE users  SET password_attempt= ? WHERE USERNAME= ?`;
+                            db.query(select, [password_attempt, username], (error, results, fields) => {
                                 if (error) {
                                     return console.error(error.message);
                                 }
@@ -345,8 +344,8 @@ router.post('/test/autologin', verifyToken, (req, res) => {
 
 router.put('/changecred/', verifyToken, (req, res) => {
 
-    let selectPSWD = `SELECT ID FROM users WHERE USERNAME= '${req.data.user.username}'`;
-    db.query(selectPSWD, (err, IDcheck, fields) => {
+    let selectPSWD = `SELECT ID FROM users WHERE USERNAME= ?`;
+    db.query(selectPSWD, [req.data.user.username], (err, IDcheck, fields) => {
         if (err) {
             return console.error(err.message);
         }
@@ -356,14 +355,14 @@ router.put('/changecred/', verifyToken, (req, res) => {
 
             if (email == undefined && (password && newPassword)) {
 
-                let selectPSWD = `SELECT password FROM users WHERE USERNAME= '${req.data.user.username}'`;
-                db.query(selectPSWD, (err, dbCred, fields) => {
+                let selectPSWD = `SELECT password FROM users WHERE USERNAME= ?`;
+                db.query(selectPSWD, [req.data.user.username], (err, dbCred, fields) => {
                     if (err) {
                         return console.error(err.message);
                     }
                     if (dbCred[0].password === password) {
 
-                        db.promise().query(`UPDATE USERS SET PASSWORD= '${newPassword}' WHERE USERNAME ='${req.data.user.username}'`);
+                        db.promise().query(`UPDATE USERS SET PASSWORD= ? WHERE USERNAME = ?`, [newPassword, req.data.user.username]);
                         res.send({ msg: 'password updated sucessfully' });
                     } else {
                         res.status(403).send({ msg: "wrong password" });
@@ -374,15 +373,15 @@ router.put('/changecred/', verifyToken, (req, res) => {
             }
             else if (newPassword == undefined && (password && email)) {
 
-                let selectPSWD = `SELECT password FROM users WHERE USERNAME= '${req.data.user.username}'`;
-                db.query(selectPSWD, (err, dbCred, fields) => {
+                let selectPSWD = `SELECT password FROM users WHERE USERNAME= ?`;
+                db.query(selectPSWD, [req.data.user.username],(err, dbCred, fields) => {
                     if (err) {
                         return console.error(err.message);
                     }
 
                     if (dbCred[0].password === password) {
 
-                        db.promise().query(`UPDATE USERS SET email= '${email}' WHERE USERNAME ='${req.data.user.username}'`);
+                        db.promise().query(`UPDATE USERS SET email= ? WHERE USERNAME = ?`, [email, req.data.user.username]);
                         res.send({ msg: 'email updated sucessfully' });
                     } else {
                         res.status(403).send({ msg: "wrong password" });
@@ -401,7 +400,7 @@ router.put('/changecred/', verifyToken, (req, res) => {
 router.post('/forgetpassword/otp/request', (req, res) => {
     const { username } = req.body;
     if (username) {
-        db.promise().query(`SELECT email FROM users WHERE username='${username}'`)
+        db.promise().query(`SELECT email FROM users WHERE username= ?`, [username])
             .then((result) => {
                 if (result[0][0]) {
                     function randomInt(max, min) {
@@ -415,8 +414,8 @@ router.post('/forgetpassword/otp/request', (req, res) => {
                     otp(result[0][0].email, OTP)
                         .then((result) => {
                             OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
-                            let select = `UPDATE users  SET OTP='${OTP}', OTP_timestamp='${OTP_timestamp}', OTP_attempt='0' WHERE USERNAME= '${username}';`;
-                            db.query(select, (error, results, fields) => {
+                            let select = `UPDATE users  SET OTP= ?, OTP_timestamp= ?, OTP_attempt='0' WHERE USERNAME= ?;`;
+                            db.query(select, [OTP, OTP_timestamp, username], (error, results, fields) => {
                                 if (error) {
                                     return console.error(error.message);
                                 }
@@ -441,8 +440,8 @@ router.post('/forgetpassword/otp/request', (req, res) => {
 router.post('/forgetpassword/otp/send', (req, res) => {
     const { username, userOTP } = req.body;
 
-    let select = `SELECT OTP, OTP_timestamp, OTP_attempt FROM users WHERE USERNAME= '${username}'`;
-    db.query(select, (error, results, fields) => {
+    let select = `SELECT OTP, OTP_timestamp, OTP_attempt FROM users WHERE USERNAME= ?`;
+    db.query(select, [username], (error, results, fields) => {
         if (error) {
             return console.error(error.message);
         }
@@ -469,8 +468,8 @@ router.post('/forgetpassword/otp/send', (req, res) => {
                             });
                         } else {
                             OTP_attempt++;
-                            let select = `UPDATE users  SET OTP_attempt='${OTP_attempt}' WHERE USERNAME= '${username}';`;
-                            db.query(select, (error, results, fields) => {
+                            let select = `UPDATE users  SET OTP_attempt= ? WHERE USERNAME= ?;`;
+                            db.query(select, [OTP_attempt, username],(error, results, fields) => {
                                 if (error) {
                                     return console.error(error.message);
                                 } if (OTP_attempt < 3) {
@@ -511,16 +510,16 @@ router.post('/forgetpassword/newpassword', (req, res) => {
             if (err) {
                 res.sendStatus(403);
             } else {
-                let select = `SELECT ID, OTP, active FROM users WHERE USERNAME= '${authData.user.username}'`;
-                db.query(select, (error, results, fields) => {
+                let select = `SELECT ID, OTP, active FROM users WHERE USERNAME= ?`;
+                db.query(select, [authData.user.username], (error, results, fields) => {
                     if (error) {
                         return console.error(error.message);
                     }
                     if (results[0]) {
                         if (results[0].OTP === authData.user.OTP) {
                             if (newPassword) {
-                                let select = `UPDATE users  SET password='${newPassword}', OTP=NULL, OTP_timestamp=NULL, OTP_attempt='0' WHERE USERNAME= '${authData.user.username}';`;
-                                db.query(select, (error, result, fields) => {
+                                let select = `UPDATE users  SET password= ?, OTP=NULL, OTP_timestamp=NULL, OTP_attempt='0' WHERE USERNAME= ?;`;
+                                db.query(select, [newPassword, authData.user.username], (error, result, fields) => {
                                     if (error) {
                                         return console.error(error.message);
                                     }

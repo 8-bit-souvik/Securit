@@ -32,8 +32,8 @@ function verifyToken(req, res, next) {
             if (err) {
                 res.sendStatus(403);
             } else {
-                let select = `SELECT USERNAME, ID FROM users WHERE USERNAME= '${authData.user.username}'`;
-                db.query(select, (error, results, fields) => {
+                let select = `SELECT USERNAME, ID FROM users WHERE USERNAME= ?`;
+                db.query(select, [authData.user.username], (error, results, fields) => {
                     if (error) {
                         return console.error(error.message);
                     }
@@ -75,8 +75,8 @@ function checkLogin(req, res, next) {
             if (err) {
                 next();
             } else {
-                let select = `SELECT name, email, ID, active FROM users WHERE USERNAME= '${authData.user.username}'`;
-                db.query(select, (error, results, fields) => {
+                let select = `SELECT name, email, ID, active FROM users WHERE USERNAME= ?`;
+                db.query(select, [authData.user.username], (error, results, fields) => {
                     if (error) {
                         return console.error(error.message);
                     }
