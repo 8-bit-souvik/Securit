@@ -254,7 +254,7 @@ router.post('/otp/resend', verifyToken, (req, res) => {
                 .then((result) => {
                     OTP = (new shajs.sha1().update(`${OTP}`).digest('hex'))
                     let select = `UPDATE users  SET OTP= ?, OTP_timestamp= ?, OTP_attempt='0' WHERE USERNAME= ?;`;
-                    db.query(select, [OTP, OTP_timestamp, req.data.user.username],  (error, results, fields) => {
+                    db.query(select, [OTP, OTP_timestamp, req.data.user.username], (error, results, fields) => {
                         if (error) {
                             return console.error(error.message);
                         }
@@ -342,58 +342,56 @@ router.post('/test/autologin', verifyToken, (req, res) => {
 
 });
 
-router.put('/changecred/', verifyToken, (req, res) => {
+router.put('/update/', verifyToken, (req, res) => {
 
-    let selectPSWD = `SELECT ID FROM users WHERE USERNAME= ?`;
-    db.query(selectPSWD, [req.data.user.username], (err, IDcheck, fields) => {
-        if (err) {
-            return console.error(err.message);
-        }
-        if (IDcheck[0].ID === req.data.user.ID) {
+    let { password, email, newPassword, name } = req.body;
 
-            const { password, email, newPassword } = req.body;
+    if (password) {
+        let selectPSWD = `SELECT password FROM users WHERE USERNAME= ?`;
+        db.query(selectPSWD, [req.data.user.username], (err, data, fields) => {
+            if (err) {
+                return console.error(err.message);
+            }
+            if (data[0].password === password) {
 
-            if (email == undefined && (password && newPassword)) {
+                const params = [];
+                let sql = ' UPDATE USERS SET ';
 
-                let selectPSWD = `SELECT password FROM users WHERE USERNAME= ?`;
-                db.query(selectPSWD, [req.data.user.username], (err, dbCred, fields) => {
+                if (email) {
+                    sql += ' email = ?';
+                    params.push(email);
+                }else
+                if (name) {
+                    sql += ' name = ?';
+                    params.push(name);
+                }else
+                if (newPassword) {
+                    password = newPassword;
+                    sql += ' password = ?';
+                    params.push(password);
+                }else{
+                    res.status(403).send({ msg: "no expected data found" });
+                    return;
+                }
+
+                sql += ' WHERE USERNAME = ?;';
+                params.push( req.data.user.username);
+
+                db.query(sql, params, (err, results, fields) => {
                     if (err) {
                         return console.error(err.message);
-                    }
-                    if (dbCred[0].password === password) {
-
-                        db.promise().query(`UPDATE USERS SET PASSWORD= ? WHERE USERNAME = ?`, [newPassword, req.data.user.username]);
-                        res.send({ msg: 'password updated sucessfully' });
                     } else {
-                        res.status(403).send({ msg: "wrong password" });
+                        res.status(200).send({ msg: 'data updated sucessfully' });
                     }
                 });
-            } else if (email == undefined && (!password || !newPassword)) {
-                res.status(403).send({ msg: "current password and new password both must be filled" });
+
+            } else {
+                res.status(403).send({ msg: "wrong password" });
             }
-            else if (newPassword == undefined && (password && email)) {
-
-                let selectPSWD = `SELECT password FROM users WHERE USERNAME= ?`;
-                db.query(selectPSWD, [req.data.user.username],(err, dbCred, fields) => {
-                    if (err) {
-                        return console.error(err.message);
-                    }
-
-                    if (dbCred[0].password === password) {
-
-                        db.promise().query(`UPDATE USERS SET email= ? WHERE USERNAME = ?`, [email, req.data.user.username]);
-                        res.send({ msg: 'email updated sucessfully' });
-                    } else {
-                        res.status(403).send({ msg: "wrong password" });
-                    }
-                });
-            } else if (newPassword == undefined && (!email || !password)) {
-                res.status(403).send({ msg: "current password and new email both must be filled" });
-            }
-        } else {
-            res.status(403).send({ msg: "something went wrong, please log in again" });
-        }
-    })
+        });
+    } else {
+        res.status(403).send({ msg: "password must be filled!" });
+    }
 
 })
 
@@ -469,7 +467,7 @@ router.post('/forgetpassword/otp/send', (req, res) => {
                         } else {
                             OTP_attempt++;
                             let select = `UPDATE users  SET OTP_attempt= ? WHERE USERNAME= ?;`;
-                            db.query(select, [OTP_attempt, username],(error, results, fields) => {
+                            db.query(select, [OTP_attempt, username], (error, results, fields) => {
                                 if (error) {
                                     return console.error(error.message);
                                 } if (OTP_attempt < 3) {

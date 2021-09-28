@@ -43,7 +43,7 @@ function verifyToken(req, res, next) {
                             req.data = authData;
                             next();
                         } else {
-                            res.status(403).send({ msg: `forbidden` });
+                            res.status(403).send({ msg: `something went wrong, please log in again` });
                         }
                     } else {
                         res.status(403).send({ msg: `forbidden` });

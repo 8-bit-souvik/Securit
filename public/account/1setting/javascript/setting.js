@@ -70,3 +70,43 @@ document.querySelector("#service").addEventListener("click", function () {
 document.querySelector("#theme").addEventListener("click", function () {
     table.theme()
 })
+
+document.querySelector("#edit1").addEventListener("click", function () {
+    // console.log(document.querySelector("#edit").parentElement.parentElement.nextElementSibling.style.display);
+    edit1 = document.querySelector("#edit1").parentElement.parentElement.nextElementSibling.style.display;
+    if (edit1 == "none") {
+    document.querySelector("#edit1").parentElement.parentElement.nextElementSibling.style.display = "";
+    document.querySelector("#edit2").parentElement.parentElement.nextElementSibling.style.display = "none";
+    document.querySelector("#edit3").parentElement.parentElement.nextElementSibling.style.display = "none";
+} else {
+    document.querySelector("#edit1").parentElement.parentElement.nextElementSibling.style.display = "none";
+    }
+    
+})
+
+document.querySelector("#edit2").addEventListener("click", function () {
+    // console.log(document.querySelector("#edit").parentElement.parentElement.nextElementSibling.style.display);
+    edit2 = document.querySelector("#edit2").parentElement.parentElement.nextElementSibling.style.display;
+    if (edit2 == "none") {
+        document.querySelector("#edit1").parentElement.parentElement.nextElementSibling.style.display = "none";
+        document.querySelector("#edit2").parentElement.parentElement.nextElementSibling.style.display = "";
+        document.querySelector("#edit3").parentElement.parentElement.nextElementSibling.style.display = "none";
+    } else {
+    document.querySelector("#edit2").parentElement.parentElement.nextElementSibling.style.display = "none";
+    }
+    
+})
+
+document.querySelector("#edit3").addEventListener("click", function () {
+    // console.log(document.querySelector("#edit").parentElement.parentElement.nextElementSibling.style.display);
+    edit3 = document.querySelector("#edit3").parentElement.parentElement.nextElementSibling.style.display;
+    if (edit3 == "none") {
+        document.querySelector("#edit1").parentElement.parentElement.nextElementSibling.style.display = "none";
+        document.querySelector("#edit2").parentElement.parentElement.nextElementSibling.style.display = "none";
+        document.querySelector("#edit3").parentElement.parentElement.nextElementSibling.style.display = "";
+    } else {
+    document.querySelector("#edit3").parentElement.parentElement.nextElementSibling.style.display = "none";
+    }
+    
+})
+
