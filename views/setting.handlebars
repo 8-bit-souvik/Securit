@@ -87,7 +87,7 @@
                 <div>{{name}} <button id="edit2"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></button></div>
             </div>
             <div style="display: none;">
-               <div><input type="text" placeholder="enter new name"></div>
+               <div><input id="name" type="text" placeholder="enter new name"></div>
                <div><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">change</button></div>
             </div>
             <div>
@@ -96,7 +96,7 @@
                             height="20px"></button></div>
             </div>
             <div style="display: none;">
-               <div><input type="text" placeholder="enter new email"></div>
+               <div><input id="email" type="text" placeholder="enter new email"></div>
                <div><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">change</button></div>
             </div>
         </div>
@@ -157,7 +157,7 @@
 
         </div>
     </section>
-    <h5 style="text-align: center; color:rgb(40, 65, 66); width:95vw;">Note: setting is not currently connected with
+    <h5 id="alert-msg" style="text-align: center; color:rgb(40, 65, 66); width:95vw;">Note: setting is not currently connected with
         backend, therefore data modification is currently unavaiable</h5>
 
 
@@ -174,7 +174,7 @@
                     <input type="password" placeholder="enter password" id="password-input">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="submit-changes">Submit</button>
+                    <button type="button" class="btn btn-default" id="submit-changes">Submit</button>
                     &nbsp; &nbsp; &nbsp;
                     {{!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     &nbsp;&nbsp;&nbsp; --}}
@@ -185,6 +185,7 @@
 
     <script src="./../public/account/javascript/script.js"></script>
     <script src="./../public/account/1setting/javascript/setting.js"></script>
+    <script src="./../public/api/setting.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
