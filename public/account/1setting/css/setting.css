@@ -36,7 +36,7 @@ section > div:not(div:nth-child(1)){
 section > div:not(div:nth-child(1)) > div{
     display: flex;
     flex-direction: row;
-    padding: 20px 0;
+    padding: 15px 0;
     border-bottom: black 1px dotted;
 }
 
@@ -50,9 +50,24 @@ margin-left: 20%;
 width: 40%;
 }
 
-section > div:not(div:nth-child(1)) > div  div:nth-child(2) > a {
+section > div:not(div:nth-child(1)) > div  div:nth-child(2) > a, button {
 position: absolute;
 right: 10px;
+padding: 1px 4px !important;
+background-color: #5bc0dea6 !important;
+}
+
+.modal-footer button{
+    position: absolute !important; 
+    right: 100px !important; 
+padding: 4px 12px !important;
+background-color: #5bc0dea6 !important;
+}
+
+.general > div:nth-child(2n) > div > input{
+    border-radius: 5px;
+    outline: none;
+    padding: 1px;
 }
 
 section > div:not(div:nth-child(1)) > div  div:nth-child(2) > a:hover{
@@ -70,6 +85,25 @@ box-shadow:  2px 1px 2px #284256,
              -1px -1px 1px #87a0b1;
 }
 
+h3{
+    margin: 0 !important;
+    font-size: 19px !important;
+}
+
+#password-input{
+    text-align: center;
+    border-radius: 5px;
+    outline: none;
+    border: olive 1px solid;
+    padding: 10px;
+    width: 30ch;
+    font-size: 15px;
+    box-shadow: rgb(177, 177, 137) 0 0 5px inset;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width: 550px) {
     section{
         margin: 4.5rem 3vw 0 8vw;
@@ -77,6 +111,11 @@ box-shadow:  2px 1px 2px #284256,
     section > div:not(div:nth-child(1)) > div > div:nth-child(2){
         width: 50%;
         }
+        h3{
+            margin: 0 !important;
+            font-size: 17px !important;
+        }
+        
 }
 
 @media screen and (max-width: 400px){
@@ -86,5 +125,13 @@ box-shadow:  2px 1px 2px #284256,
         }
         section > div:not(div:nth-child(1)){
             margin-left: 10px;
+        }
+        h3 {
+            margin: 0 !important;
+            font-size: 14px !important;
+        }
+        #password-input{
+            width: 20ch;
+            padding: 5px 10px;
         }
 }
