@@ -64,7 +64,10 @@
         </div>
     </navbar>
 
-<br>
+<br> 
+<br> 
+<br> 
+<h2>Settings</h2>
     <section>
         <div id="tab">
             <h3 id="general">general</h3>
@@ -76,7 +79,7 @@
         <div class="general">
             <div>
                 <div>userID</div>
-                <div>{{userID}} <button id="edit1"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></button></div>
+                <div>{{userID}} <button style="display: none;" id="edit1"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></button></div>
             </div>
             <div style="display: none;">
                <div><input type="text" placeholder="cannot change ID"></div>
@@ -103,8 +106,7 @@
         <div class="security" style="display: none;">
             <div>
                 <div>userID</div>
-                <div>{{userID}} <a href="#"><img src="./../public/account/1setting/icons/edit-regular.svg"
-                            height="20px"></a></div>
+                <div>{{userID}} </div>
             </div>
             <div>
                 <div>password</div>
@@ -115,7 +117,7 @@
             <div>
                 <div>login</div>
                 <div>
-                    <div class="do-button">logout from all devices</div>
+                    <div class="do-button" id="logout-from-all-devices">logout from all devices</div>
                 </div>
             </div>
         </div>
@@ -150,15 +152,10 @@
 
         </div>
         <div>
-            <br>
-            <br>
-            <br>
-            <br>
 
         </div>
     </section>
-    <h5 id="alert-msg" style="text-align: center; color:rgb(40, 65, 66); width:95vw;">Note: setting is not currently connected with
-        backend, therefore data modification is currently unavaiable</h5>
+    <h5 id="alert-msg" style=""></h5>
 
 
 

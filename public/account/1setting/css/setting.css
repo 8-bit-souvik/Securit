@@ -1,5 +1,5 @@
 section{
-    margin: 4.5rem 15%;
+    margin: 0 15% 2rem 15%;
     background-color: rgb(209, 217, 255);
 }
 
@@ -65,9 +65,10 @@ background-color: #5bc0dea6 !important;
 }
 
 .general > div:nth-child(2n) > div > input{
+    width: 30ch;
     border-radius: 5px;
     outline: none;
-    padding: 1px;
+    padding: 5px;
 }
 
 section > div:not(div:nth-child(1)) > div  div:nth-child(2) > a:hover{
@@ -75,6 +76,7 @@ section > div:not(div:nth-child(1)) > div  div:nth-child(2) > a:hover{
 }
 
 .do-button{
+cursor: pointer;
 background-color: cornflowerblue;
 color: cornsilk;
 width: fit-content;
@@ -85,9 +87,29 @@ box-shadow:  2px 1px 2px #284256,
              -1px -1px 1px #87a0b1;
 }
 
+.do-button:active{
+    background: linear-gradient(145deg, #5a98c7, #78a3c4);
+    box-shadow:  -1px -1px 2px #284256,
+                 2px 1px 1px #87a0b1;
+}
+
+h2{
+    margin-left: 15% ;
+    font-size: 25px !important;
+    font-weight: 600 !important;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+
 h3{
     margin: 0 !important;
     font-size: 19px !important;
+}
+
+#alert-msg{
+    font-size: 20px;
+    text-align: center;
+     color:#c70942;
+     width:80vw;
 }
 
 #password-input{
@@ -106,7 +128,7 @@ h3{
 
 @media screen and (max-width: 550px) {
     section{
-        margin: 4.5rem 3vw 0 8vw;
+        margin: 0 3vw 0 8vw;
     }
     section > div:not(div:nth-child(1)) > div > div:nth-child(2){
         width: 50%;
