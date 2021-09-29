@@ -3,9 +3,7 @@ window.onload = function () {
     let linkLog = document.querySelector(".link-log")
     let linkID = document.querySelector(".link-ID")
   
-   var active = document.cookie.split(';')
-   active = active[0].split('=');
-    if (active[1]) {
+    if (document.querySelector(".name").innerText) {
         linkLog.style.display = "none";
         linkID.style.display = "";
  

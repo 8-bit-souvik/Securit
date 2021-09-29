@@ -125,7 +125,7 @@ router.post('/signup/', (req, res) => {
                             });
 
                         }).catch((err) => {
-                            res.status(500).send({ msg: `internal server error please contact with support team` });
+                            res.status(500).send({ msg: `please check your email ID` });
                             console.log(err);
                         });
 
