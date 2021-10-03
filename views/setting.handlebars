@@ -28,9 +28,9 @@
                     </div>
                 </div>
                 <div class="ext">
-                    <a href="/dashboard">my account</a>
-                    <a href="/setting">setting</a>
-                    <a id="logout">logout</a>
+                    <a href="/dashboard">My Account</a>
+                    <a href="/setting">Setting</a>
+                    <a id="logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                     <li>Support</li>
                 </a>
                 <a id="logout">
-                    <li>logout</li>
+                    <li>LogOut</li>
                 </a>
             </ul>
         </div>
@@ -70,37 +70,37 @@
 <h2>Settings</h2>
     <section>
         <div id="tab">
-            <h3 id="general">general</h3>
-            <h3 id="security">security</h3>
-            <h3 id="service">service</h3>
-            <h3 id="theme">theme</h3>
+            <h3 id="general">General</h3>
+            <h3 id="security">Security</h3>
+            <h3 id="service">Service</h3>
+            <h3 id="theme">Theme</h3>
         </div>
 
         <div class="general">
             <div>
-                <div>userID</div>
+                <div>UserID</div>
                 <div>{{userID}} <button style="display: none;" id="edit1"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></button></div>
             </div>
             <div style="display: none;">
-               <div><input type="text" placeholder="cannot change ID"></div>
-               <div><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">change</button></div>
+               <div><input spellcheck="false" type="text" placeholder="cannot change ID"></div>
+               <div><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Change</button></div>
             </div>
             <div>
-                <div>name</div>
+                <div>Name</div>
                 <div>{{name}} <button id="edit2"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></button></div>
             </div>
             <div style="display: none;">
-               <div><input id="name" type="text" placeholder="enter new name"></div>
-               <div><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">change</button></div>
+               <div><input id="name" type="text" spellcheck="false" placeholder="Enter Your New Name"></div>
+               <div><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Change</button></div>
             </div>
             <div>
-                <div>email</div>
+                <div>Email Id</div>
                 <div>{{email}} <button id="edit3"><img src="./../public/account/1setting/icons/edit-regular.svg"
                             height="20px"></button></div>
             </div>
             <div style="display: none;">
-               <div><input id="email" type="text" placeholder="enter new email"></div>
-               <div><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">change</button></div>
+               <div><input  id="email" type="text" spellcheck="false" placeholder="Enter Your New Email"></div>
+               <div><button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Change</button></div>
             </div>
         </div>
         <div class="security" style="display: none;">
@@ -109,45 +109,45 @@
                 <div>{{userID}} </div>
             </div>
             <div>
-                <div>password</div>
+                <div>Password</div>
                 <div>
-                    <div class="do-button">change password</div>
+                    <div class="do-button">Change Password</div>
                 </div>
             </div>
             <div>
-                <div>login</div>
+                <div>Login</div>
                 <div>
-                    <div class="do-button" id="logout-from-all-devices">logout from all devices</div>
+                    <div class="do-button" id="logout-from-all-devices">Logout From All Devices</div>
                 </div>
             </div>
         </div>
         <div class="service" style="display: none;">
             <div>
-                <div>api key</div>
+                <div>API key</div>
                 <div> [ api key ] </api><a href="#"><img src="./../public/account/1setting/icons/edit-regular.svg"
                             height="20px"></a></div>
             </div>
             <div>
-                <div>endpoint</div>
+                <div>Endpoint</div>
                 <div>
-                    <div class="do-button">test endpoint</div>
+                    <div class="do-button">Test Endpoint</div>
                 </div>
             </div>
             <div>
-                <div>documentation</div>
-                <div><a href="#">view docs</a></div>
+                <div>Documentation</div>
+                <div><a href="#">View Docs</a></div>
             </div>
         </div>
         <div class="theme" style="display: none;">
 
             <div>
-                <div>theme</div>
-                <div>light<a href="#"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></a>
+                <div>Theme</div>
+                <div>Light<a href="#"><img src="./../public/account/1setting/icons/edit-regular.svg" height="20px"></a>
                 </div>
             </div>
             <div>
-                <div>customize theme</div>
-                <div><a href="#">view docs</a></div>
+                <div>Customize Theme</div>
+                <div><a href="#">View Docs</a></div>
             </div>
 
         </div>
@@ -168,7 +168,7 @@
                     <h4 class="modal-title">Enter password for verification</h4>
                 </div>
                 <div class="modal-body">
-                    <input type="password" placeholder="enter password" id="password-input">
+                    <input spellcheck="false" type="password" placeholder="enter password" id="password-input">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" id="submit-changes">Submit</button>
