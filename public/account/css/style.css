@@ -20,10 +20,12 @@ header{
     top: 0;
     height: 60px;
     width: 100vw;
-    background-color: rgba(168, 245, 168, 0.801);
+    background-color: rgb(168, 245, 168);
     display: flex;
-    flex-wrap: nowrap;
+    /* flex-wrap: nowrap; */
+    white-space: normal;
     padding: 3px;
+    z-index: 1000;
 }
 
 header .options {
@@ -55,7 +57,7 @@ header .options:nth-child(1) a:hover{
 header > .options > div:nth-child(2) > .ext{
     display: flex;
     flex-direction: column;
-    z-index: 100;
+    /* z-index: 100; */
     border: 1px solid grey;
     background-color: rgb(212, 211, 211);
     box-shadow: grey 0px 0px 10px;
@@ -68,6 +70,7 @@ header > .options > div:nth-child(2) > .ext{
 header .options > div:nth-child(2) {
     padding: 5px 20px 0 20px;
     cursor: pointer;
+    width: 20vw;
 }
     
 header .options > div:nth-child(2) .name {
@@ -83,7 +86,10 @@ header .options > div:nth-child(2) .email {
  flex-wrap: nowrap;
 
 }
-    
+
+#nav{
+    z-index: 2000;
+}
 
 header > .options > div:nth-child(2):hover .ext{
     display: flex;
@@ -164,13 +170,40 @@ navbar .options li:hover{
 }
 
 
-@media screen and (max-width: 400px) {
+
+
+@media screen and (max-width: 910px) {
     *{
         font-size: 99%;
     }
+    header .options > div:nth-child(2) {
+        width: 25vw;
+    }
 }
-@media screen and (max-width: 300px) {
+
+@media screen and (max-width: 700px) {
     *{
-        font-size: 96%;
+        font-size: 99%;
+    }
+    header .options > div:nth-child(2) {
+        width: 42vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    *{
+        font-size: 99%;
+    }
+    header .options > div:nth-child(2) {
+        width: 47vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    *{
+        font-size: 98%;
+    }
+    header .options > div:nth-child(2) {
+        width: 47vw;
     }
 }
