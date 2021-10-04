@@ -1,5 +1,5 @@
 <p align="center">
- <img width="70%" src="public/form/images/logo-light.svg" />
+<img src="https://i.ibb.co/BjHgMt9/image.png" alt="image" border="0">
 </p>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -159,6 +159,7 @@ i.e: database will be `securit` and table `users`.<br/>
 to build the database, run this query in mysql CLI-
 ```
 CREATE DATABASE securit;
+USE securit;
 CREATE TABLE users (
 username VARCHAR(45) NOT NULL PRIMARY KEY,
 password VARCHAR(45) NOT NULL,
